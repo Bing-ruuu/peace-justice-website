@@ -12,6 +12,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # 初始化数据库和加密
 db = SQLAlchemy(app)
+with app.app_context():
+    db.create_all()
 bcrypt = Bcrypt(app)
 
 # ===================== 用户模型 =====================
