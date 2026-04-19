@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # ===================== 核心配置（直接写在这里，不依赖外部文件）=====================
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-key-for-test')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///site.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///site.db') + '?sslmode=require'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # 初始化数据库和加密
