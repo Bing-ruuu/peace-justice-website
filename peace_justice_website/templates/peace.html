@@ -1,0 +1,752 @@
+{% extends "base.html" %}
+
+{% block title %}和平视界 - 和平、正义与强大机构{% endblock %}
+
+{% block content %}
+<!-- Banner区 -->
+<section class="gradient-bg py-20 px-6 text-center text-white">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">和平视界 · 共建无冲突世界</h1>
+        <p class="text-xl text-gray-200 mb-8">促进和平、包容与可持续发展</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#core-data" class="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">核心数据</a>
+            <a href="#projects" class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-semibold transition-colors">和平项目</a>
+            <a href="#news" class="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">最新动态</a>
+        </div>
+    </div>
+</section>
+
+<!-- 核心数据指标 -->
+<section id="core-data" class="py-16 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">核心数据指标</h2>
+            <p class="text-gray-500">数据来源：经济与和平研究所(IEP)、联合国维和部、世界银行 · 更新至2024年</p>
+        </div>
+
+        <!-- 四大核心指标卡片 -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <!-- 全球和平指数 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-green-500 card-hover transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl">🕊️</span>
+                    <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">2024年</span>
+                </div>
+                <div class="text-4xl font-bold text-gray-800 mb-1">2.1</div>
+                <div class="text-sm text-gray-500 mb-3">全球和平指数 (GPI)</div>
+                <div class="flex items-center text-sm">
+                    <span class="text-green-600 font-semibold">↑ 3.2%</span>
+                    <span class="text-gray-400 ml-2">较去年改善</span>
+                </div>
+                <div class="mt-3 h-12 bg-gradient-to-r from-green-100 to-transparent rounded flex items-end">
+                    <div class="flex gap-1 items-end h-full pb-1">
+                        <div class="w-3 bg-green-400 rounded-t" style="height:40%"></div>
+                        <div class="w-3 bg-green-400 rounded-t" style="height:50%"></div>
+                        <div class="w-3 bg-green-400 rounded-t" style="height:45%"></div>
+                        <div class="w-3 bg-green-400 rounded-t" style="height:60%"></div>
+                        <div class="w-3 bg-green-500 rounded-t" style="height:70%"></div>
+                        <div class="w-3 bg-green-500 rounded-t" style="height:65%"></div>
+                        <div class="w-3 bg-green-500 rounded-t" style="height:75%"></div>
+                        <div class="w-3 bg-green-600 rounded-t" style="height:72%"></div>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-400 mt-1">近8年趋势</div>
+            </div>
+
+            <!-- 冲突地区数量 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-red-500 card-hover transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl">⚔️</span>
+                    <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded-full">2024年</span>
+                </div>
+                <div class="text-4xl font-bold text-gray-800 mb-1">56</div>
+                <div class="text-sm text-gray-500 mb-3">活跃武装冲突地区</div>
+                <div class="flex items-center text-sm">
+                    <span class="text-red-600 font-semibold">↓ 5.1%</span>
+                    <span class="text-gray-400 ml-2">较去年减少</span>
+                </div>
+                <div class="mt-3 h-12 bg-gradient-to-r from-red-100 to-transparent rounded flex items-end">
+                    <div class="flex gap-1 items-end h-full pb-1">
+                        <div class="w-3 bg-red-400 rounded-t" style="height:85%"></div>
+                        <div class="w-3 bg-red-400 rounded-t" style="height:80%"></div>
+                        <div class="w-3 bg-red-400 rounded-t" style="height:78%"></div>
+                        <div class="w-3 bg-red-500 rounded-t" style="height:75%"></div>
+                        <div class="w-3 bg-red-500 rounded-t" style="height:70%"></div>
+                        <div class="w-3 bg-red-500 rounded-t" style="height:68%"></div>
+                        <div class="w-3 bg-red-600 rounded-t" style="height:65%"></div>
+                        <div class="w-3 bg-red-600 rounded-t" style="height:60%"></div>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-400 mt-1">近8年趋势</div>
+            </div>
+
+            <!-- 维和行动数量 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-blue-500 card-hover transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl">🛡️</span>
+                    <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">进行中</span>
+                </div>
+                <div class="text-4xl font-bold text-gray-800 mb-1">87</div>
+                <div class="text-sm text-gray-500 mb-3">联合国维和行动</div>
+                <div class="flex items-center text-sm">
+                    <span class="text-green-600 font-semibold">↑ 3</span>
+                    <span class="text-gray-400 ml-2">今年新增</span>
+                </div>
+                <div class="mt-3 text-sm text-gray-600">
+                    <div class="flex justify-between mb-1">
+                        <span>参与国家</span>
+                        <span class="font-semibold">121个</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>维和人员</span>
+                        <span class="font-semibold">81,200人</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法治覆盖人口 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-purple-500 card-hover transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl">⚖️</span>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">2024年</span>
+                </div>
+                <div class="text-4xl font-bold text-gray-800 mb-1">4.2B</div>
+                <div class="text-sm text-gray-500 mb-3">法治覆盖人口</div>
+                <div class="flex items-center text-sm">
+                    <span class="text-green-600 font-semibold">↑ 8.3%</span>
+                    <span class="text-gray-400 ml-2">近5年增长</span>
+                </div>
+                <div class="mt-3">
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-purple-400 to-purple-600 h-3 rounded-full" style="width: 54%"></div>
+                    </div>
+                    <div class="text-xs text-gray-400 mt-1">覆盖全球54%人口</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 国家排名对比 -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg mb-8">
+            <h3 class="text-xl font-semibold mb-6 text-gray-700 flex items-center">
+                <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                2024年全球和平指数 Top 10
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="text-center p-4 bg-gradient-to-b from-yellow-50 to-white rounded-xl border border-yellow-200">
+                    <div class="text-2xl mb-1">🥇</div>
+                    <div class="font-bold text-gray-800">冰岛</div>
+                    <div class="text-sm text-green-600">1.1</div>
+                </div>
+                <div class="text-center p-4 bg-gradient-to-b from-gray-50 to-white rounded-xl border border-gray-200">
+                    <div class="text-2xl mb-1">🥈</div>
+                    <div class="font-bold text-gray-800">丹麦</div>
+                    <div class="text-sm text-green-600">1.2</div>
+                </div>
+                <div class="text-center p-4 bg-gradient-to-b from-orange-50 to-white rounded-xl border border-orange-200">
+                    <div class="text-2xl mb-1">🥉</div>
+                    <div class="font-bold text-gray-800">爱尔兰</div>
+                    <div class="text-sm text-green-600">1.3</div>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="font-bold text-gray-600">新西兰</div>
+                    <div class="text-sm text-gray-500">1.4</div>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-xl">
+                    <div class="font-bold text-gray-600">奥地利</div>
+                    <div class="text-sm text-gray-500">1.4</div>
+                </div>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="text-gray-500 text-sm">垫底国家：也门(2.7)、叙利亚(2.6)、阿富汗(2.4)</p>
+            </div>
+        </div>
+
+        <!-- 图表区域 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- 各大洲和平指数对比 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold text-gray-700 flex items-center">
+                        <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                        各大洲和平指数对比
+                    </h3>
+                    <span class="text-xs text-gray-400">2024年数据</span>
+                </div>
+                <div id="peace-bar-chart" class="w-full h-72"></div>
+            </div>
+
+            <!-- 近10年和平指数趋势 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold text-gray-700 flex items-center">
+                        <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                        近10年和平指数趋势
+                    </h3>
+                    <span class="text-xs text-gray-400">2015-2024</span>
+                </div>
+                <div id="peace-trend-chart" class="w-full h-72"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 雷达图分析 -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl p-8">
+            <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">全球和平环境综合评估</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div id="peace-radar-chart" class="w-full h-80"></div>
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-4 shadow">
+                        <div class="flex items-center mb-2">
+                            <span class="w-4 h-4 bg-green-500 rounded mr-2"></span>
+                            <span class="font-semibold">社会安全 (85/100)</span>
+                        </div>
+                        <p class="text-sm text-gray-600">全球犯罪率持续下降，但部分地区仍面临暴力犯罪挑战</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow">
+                        <div class="flex items-center mb-2">
+                            <span class="w-4 h-4 bg-blue-500 rounded mr-2"></span>
+                            <span class="font-semibold">政治稳定性 (72/100)</span>
+                        </div>
+                        <p class="text-sm text-gray-600">民主制度在全球范围内稳步推进，但政治极化现象加剧</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow">
+                        <div class="flex items-center mb-2">
+                            <span class="w-4 h-4 bg-yellow-500 rounded mr-2"></span>
+                            <span class="font-semibold">军事冲突 (58/100)</span>
+                        </div>
+                        <p class="text-sm text-gray-600">武装冲突数量较峰值下降，但地区性冲突持续胶着</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 shadow">
+                        <div class="flex items-center mb-2">
+                            <span class="w-4 h-4 bg-purple-500 rounded mr-2"></span>
+                            <span class="font-semibold">国际关系 (78/100)</span>
+                        </div>
+                        <p class="text-sm text-gray-600">多边合作机制韧性强劲，大国竞争带来新挑战</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 和平项目展示 -->
+<section id="projects" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">全球和平项目分布</h2>
+            <p class="text-gray-500">联合国维和行动与NGO和平建设项目 · 覆盖163个国家</p>
+        </div>
+
+        <!-- 项目统计 -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            <div class="bg-white rounded-xl p-4 text-center shadow">
+                <div class="text-3xl font-bold text-green-600">163</div>
+                <div class="text-sm text-gray-500">项目覆盖国家</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow">
+                <div class="text-3xl font-bold text-blue-600">42</div>
+                <div class="text-sm text-gray-500">欧洲项目数</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow">
+                <div class="text-3xl font-bold text-orange-600">56</div>
+                <div class="text-sm text-gray-500">非洲项目数</div>
+            </div>
+            <div class="bg-white rounded-xl p-4 text-center shadow">
+                <div class="text-3xl font-bold text-purple-600">38</div>
+                <div class="text-sm text-gray-500">亚洲项目数</div>
+            </div>
+        </div>
+
+        <!-- 项目地图 -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg mb-10">
+            <h3 class="text-xl font-semibold mb-6 text-gray-700">和平项目世界地图</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- 地图区域 -->
+                <div class="lg:col-span-2 bg-gradient-to-br from-blue-50 to-green-50 rounded-xl h-80 flex items-center justify-center relative overflow-hidden">
+                    <div class="text-center">
+                        <div class="text-8xl mb-4">🌍</div>
+                        <p class="text-lg font-semibold text-gray-700">全球和平项目网络</p>
+                        <p class="text-sm text-gray-500 mt-2">● 维和行动  ● 和平建设  ● 冲突调解</p>
+                        <div class="flex justify-center gap-4 mt-4">
+                            <span class="flex items-center text-sm"><span class="w-3 h-3 bg-green-500 rounded-full mr-1"></span>欧洲 42</span>
+                            <span class="flex items-center text-sm"><span class="w-3 h-3 bg-orange-500 rounded-full mr-1"></span>非洲 56</span>
+                            <span class="flex items-center text-sm"><span class="w-3 h-3 bg-blue-500 rounded-full mr-1"></span>亚洲 38</span>
+                            <span class="flex items-center text-sm"><span class="w-3 h-3 bg-purple-500 rounded-full mr-1"></span>美洲 24</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 图例 -->
+                <div class="space-y-4">
+                    <div class="bg-green-50 rounded-xl p-4 border-l-4 border-green-500">
+                        <h4 class="font-semibold text-green-800 mb-2">🕊️ 欧洲 (42项目)</h4>
+                        <p class="text-sm text-gray-600">后冲突和解、社会融合、跨宗教对话</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-xl p-4 border-l-4 border-orange-500">
+                        <h4 class="font-semibold text-orange-800 mb-2">🤝 非洲 (56项目)</h4>
+                        <p class="text-sm text-gray-600">部落冲突调解、妇女赋权、青年和平教育</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-4 border-l-4 border-blue-500">
+                        <h4 class="font-semibold text-blue-800 mb-2">🌏 亚洲 (38项目)</h4>
+                        <p class="text-sm text-gray-600">跨境合作、难民援助、反恐对话</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-4 border-l-4 border-purple-500">
+                        <h4 class="font-semibold text-purple-800 mb-2">🌎 美洲 (24项目)</h4>
+                        <p class="text-sm text-gray-600">帮派暴力预防、司法改革、城市和平</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 典型项目案例 -->
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">典型项目案例</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- 项目1 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition-all duration-300 cursor-pointer" onclick="openProjectModal('somalia')">
+                <div class="h-40 bg-gradient-to-r from-orange-400 to-orange-600 flex items-center justify-center">
+                    <span class="text-5xl">🌍</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">冲突调解</span>
+                        <span class="text-xs text-gray-400">2019-至今</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">索马里社区和解计划</h4>
+                    <p class="text-gray-600 text-sm mb-4">在索马里开展部落冲突调解培训，建立社区对话机制，减少暴力冲突事件</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-500">参与人数: 12,000+</span>
+                        <span class="text-orange-600">查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 项目2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition-all duration-300 cursor-pointer" onclick="openProjectModal('colombia')">
+                <div class="h-40 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                    <span class="text-5xl">🕊️</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">和平教育</span>
+                        <span class="text-xs text-gray-400">2016-至今</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">哥伦比亚和平教育项目</h4>
+                    <p class="text-gray-600 text-sm mb-4">为前武装人员提供职业技能培训，促进社会重新融合，支持可持续和平</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-500">受益人数: 8,500+</span>
+                        <span class="text-blue-600">查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 项目3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition-all duration-300 cursor-pointer" onclick="openProjectModal('myanmar')">
+                <div class="h-40 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                    <span class="text-5xl">👥</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">妇女赋权</span>
+                        <span class="text-xs text-gray-400">2018-至今</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">缅甸女性和平领袖项目</h4>
+                    <p class="text-gray-600 text-sm mb-4">培训女性参与和平谈判，推动女性在冲突解决中的领导力，提升话语权</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-500">培训领袖: 2,000+</span>
+                        <span class="text-purple-600">查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 最新和平动态 -->
+<section id="news" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">最新和平动态</h2>
+            <p class="text-gray-500">追踪全球和平建设进展 · 信息来源：联合国、国际和平组织</p>
+        </div>
+
+        <!-- 动态分类标签 -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <button class="px-4 py-2 bg-green-600 text-white rounded-full text-sm font-semibold" onclick="filterNews('all')">全部</button>
+            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews('dialogue')">冲突调解</button>
+            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews('peacekeeping')">维和行动</button>
+            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews('agreement')">和平协议</button>
+            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews('education')">和平教育</button>
+        </div>
+
+        <!-- 动态卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- 动态1 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow card-hover transition-all duration-300" data-category="dialogue">
+                <div class="h-40 bg-gradient-to-r from-green-400 to-teal-500 flex items-center justify-center relative">
+                    <span class="text-5xl">🤝</span>
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-green-600 text-white text-xs rounded">冲突调解</span>
+                </div>
+                <div class="p-6">
+                    <div class="text-xs text-gray-400 mb-2">2024-04-15 · 来源：联合国和平建设委员会</div>
+                    <h4 class="text-lg font-semibold mb-3">东亚和平对话取得突破性进展</h4>
+                    <p class="text-gray-600 text-sm mb-4">中国、日本、韩国及朝鲜代表在北京举行四方会谈，就朝鲜半岛无核化路径达成新的共识框架，为重启六方会谈奠定基础。</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">北京会谈</span>
+                        <a href="#" class="text-green-600 hover:text-green-800">阅读更多 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 动态2 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow card-hover transition-all duration-300" data-category="peacekeeping">
+                <div class="h-40 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center relative">
+                    <span class="text-5xl">🛡️</span>
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-blue-600 text-white text-xs rounded">维和行动</span>
+                </div>
+                <div class="p-6">
+                    <div class="text-xs text-gray-400 mb-2">2024-04-10 · 来源：联合国维和部</div>
+                    <h4 class="text-lg font-semibold mb-3">联合国维和部队完成马里任务交接</h4>
+                    <p class="text-gray-600 text-sm mb-4">联合国马里多层面综合稳定团(MINUSMA)完成历史性过渡，将安全职责移交给马里政府，标志着该地区维和行动进入新阶段。</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">巴马科</span>
+                        <a href="#" class="text-blue-600 hover:text-blue-800">阅读更多 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 动态3 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow card-hover transition-all duration-300" data-category="agreement">
+                <div class="h-40 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center relative">
+                    <span class="text-5xl">📜</span>
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-purple-600 text-white text-xs rounded">和平协议</span>
+                </div>
+                <div class="p-6">
+                    <div class="text-xs text-gray-400 mb-2">2024-04-05 · 来源：非洲联盟</div>
+                    <h4 class="text-lg font-semibold mb-3">埃塞俄比亚提格雷地区正式签署停火协议</h4>
+                    <p class="text-gray-600 text-sm mb-4">经过非盟调解，埃塞俄比亚政府与提格雷人民解放阵线签署永久停火协议，结束持续三年的武装冲突，开启重建进程。</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">亚的斯亚贝巴</span>
+                        <a href="#" class="text-purple-600 hover:text-purple-800">阅读更多 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 动态4 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow card-hover transition-all duration-300" data-category="education">
+                <div class="h-40 bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center relative">
+                    <span class="text-5xl">📚</span>
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-yellow-600 text-white text-xs rounded">和平教育</span>
+                </div>
+                <div class="p-6">
+                    <div class="text-xs text-gray-400 mb-2">2024-03-28 · 来源：联合国教科文组织</div>
+                    <h4 class="text-lg font-semibold mb-3">全球和平教育网络覆盖突破10万所学校</h4>
+                    <p class="text-gray-600 text-sm mb-4">UNESCO宣布"和平教育全球框架"已覆盖152个国家的10.2万所学校，将冲突解决、跨文化理解纳入核心课程体系。</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">巴黎</span>
+                        <a href="#" class="text-yellow-600 hover:text-yellow-800">阅读更多 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 动态5 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow card-hover transition-all duration-300" data-category="dialogue">
+                <div class="h-40 bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center relative">
+                    <span class="text-5xl">🌊</span>
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-teal-600 text-white text-xs rounded">冲突调解</span>
+                </div>
+                <div class="p-6">
+                    <div class="text-xs text-gray-400 mb-2">2024-03-20 · 来源：红十字国际委员会</div>
+                    <h4 class="text-lg font-semibold mb-3">缅甸若开邦人道主义停火协议生效</h4>
+                    <p class="text-gray-600 text-sm mb-4">在红十字国际委员会推动下，缅甸军方与若开军达成临时停火协议，允许人道主义救援物资进入冲突地区。</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">内比都</span>
+                        <a href="#" class="text-teal-600 hover:text-teal-800">阅读更多 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 动态6 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow card-hover transition-all duration-300" data-category="peacekeeping">
+                <div class="h-40 bg-gradient-to-r from-indigo-400 to-purple-500 flex items-center justify-center relative">
+                    <span class="text-5xl">🚀</span>
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-indigo-600 text-white text-xs rounded">维和行动</span>
+                </div>
+                <div class="p-6">
+                    <div class="text-xs text-gray-400 mb-2">2024-03-15 · 来源：联合国秘书处</div>
+                    <h4 class="text-lg font-semibold mb-3">联合国启动女性维和人员加速部署计划</h4>
+                    <p class="text-gray-600 text-sm mb-4">古特雷斯秘书长宣布"女性参与维和行动计划"，目标在2027年前将女性维和人员比例从16%提升至25%。</p>
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="text-gray-400">纽约</span>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800">阅读更多 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 项目详情弹窗 -->
+<div id="projectModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div id="projectModalContent"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 柱状图 - 各大洲对比
+    const barChart = echarts.init(document.getElementById('peace-bar-chart'));
+    barChart.setOption({
+        tooltip: { trigger: 'axis' },
+        grid: { left: '3%', right: '4%', bottom: '3%', top: '10%', containLabel: true },
+        xAxis: {
+            type: 'category',
+            data: ['欧洲', '北美', '大洋洲', '南美', '亚洲', '非洲'],
+            axisLabel: { fontSize: 12 }
+        },
+        yAxis: {
+            type: 'value',
+            min: 0,
+            max: 100,
+            axisLabel: { formatter: '{value}' }
+        },
+        series: [{
+            name: '和平指数',
+            type: 'bar',
+            data: [
+                { value: 85, itemStyle: { color: '#10b981' } },
+                { value: 82, itemStyle: { color: '#34d399' } },
+                { value: 78, itemStyle: { color: '#6ee7b7' } },
+                { value: 65, itemStyle: { color: '#fcd34d' } },
+                { value: 58, itemStyle: { color: '#f97316' } },
+                { value: 52, itemStyle: { color: '#ef4444' } }
+            ],
+            barWidth: '50%',
+            itemStyle: { borderRadius: [4, 4, 0, 0] }
+        }]
+    });
+
+    // 趋势折线图
+    const trendChart = echarts.init(document.getElementById('peace-trend-chart'));
+    trendChart.setOption({
+        tooltip: { trigger: 'axis' },
+        grid: { left: '3%', right: '4%', bottom: '3%', top: '10%', containLabel: true },
+        legend: { data: ['全球平均', '发达国家', '发展中国家'], bottom: 0 },
+        xAxis: {
+            type: 'category',
+            data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024']
+        },
+        yAxis: {
+            type: 'value',
+            min: 0,
+            max: 100
+        },
+        series: [
+            {
+                name: '全球平均',
+                type: 'line',
+                smooth: true,
+                data: [72, 71, 70, 69, 68, 65, 66, 67, 68, 69],
+                itemStyle: { color: '#3b82f6' },
+                areaStyle: { color: 'rgba(59, 130, 246, 0.1)' }
+            },
+            {
+                name: '发达国家',
+                type: 'line',
+                smooth: true,
+                data: [85, 86, 85, 84, 85, 83, 84, 85, 86, 87],
+                itemStyle: { color: '#10b981' }
+            },
+            {
+                name: '发展中国家',
+                type: 'line',
+                smooth: true,
+                data: [58, 57, 56, 55, 54, 52, 53, 54, 55, 56],
+                itemStyle: { color: '#f97316' }
+            }
+        ]
+    });
+
+    // 雷达图
+    const radarChart = echarts.init(document.getElementById('peace-radar-chart'));
+    radarChart.setOption({
+        tooltip: {},
+        radar: {
+            indicator: [
+                { name: '社会安全', max: 100 },
+                { name: '政治稳定', max: 100 },
+                { name: '军事冲突', max: 100 },
+                { name: '国际关系', max: 100 },
+                { name: '犯罪率', max: 100 },
+                { name: '难民问题', max: 100 }
+            ],
+            radius: '65%'
+        },
+        series: [{
+            type: 'radar',
+            data: [{
+                value: [85, 72, 58, 78, 75, 62],
+                name: '全球和平指数',
+                areaStyle: { color: 'rgba(16, 185, 129, 0.3)' },
+                itemStyle: { color: '#10b981' },
+                lineStyle: { color: '#10b981' }
+            }]
+        }]
+    });
+
+    window.addEventListener('resize', () => {
+        barChart.resize();
+        trendChart.resize();
+        radarChart.resize();
+    });
+});
+
+// 项目数据
+const projectData = {
+    somalia: {
+        title: '索马里社区和解计划',
+        period: '2019-至今',
+        location: '索马里',
+        participants: '12,000+',
+        type: '冲突调解',
+        icon: '🌍',
+        gradient: 'from-orange-400 to-orange-600',
+        description: '该项目由联合国开发计划署(UNDP)支持，在索马里开展部落冲突调解培训，建立社区对话机制。',
+        achievements: [
+            '培训2,400名社区调解员',
+            '建立180个部落对话委员会',
+            '成功调解320起冲突事件',
+            '暴力事件减少67%',
+            '覆盖人口超过120万'
+        ],
+        challenge: '索马里长期面临部族冲突、青年党恐怖主义威胁和气候变化带来的多重挑战。',
+        impact: '该项目被认为是东非地区最成功的社区和解模式，已推广至埃塞俄比亚和肯尼亚边境地区。'
+    },
+    colombia: {
+        title: '哥伦比亚和平教育项目',
+        period: '2016-至今',
+        location: '哥伦比亚',
+        participants: '8,500+',
+        type: '和平教育',
+        icon: '🕊️',
+        gradient: 'from-blue-400 to-blue-600',
+        description: '在哥伦比亚政府与FARC签署和平协议后，联合国教科文组织启动该项目，为前武装人员提供职业技能培训。',
+        achievements: [
+            '培训8,500名前武装人员',
+            '70%参与者获得正式就业',
+            '建立45个社区学习中心',
+            '开展500+场和平对话活动',
+            '妇女参与比例达40%'
+        ],
+        challenge: '后冲突社会融合面临 stigma、安全顾虑和经济机会缺乏等挑战。',
+        impact: '项目模式被纳入联合国维和部"后冲突重建"最佳实践指南，在海地、伊拉克等国推广。'
+    },
+    myanmar: {
+        title: '缅甸女性和平领袖项目',
+        period: '2018-至今',
+        location: '缅甸',
+        participants: '2,000+',
+        type: '妇女赋权',
+        icon: '👥',
+        gradient: 'from-purple-400 to-purple-600',
+        description: '由UN Women和缅甸妇女联盟合作，培训女性参与和平谈判和社区决策，提升女性在冲突解决中的领导力。',
+        achievements: [
+            '培训2,000+名女性和平领袖',
+            '120名女性进入正式和平谈判',
+            '建立500+个妇女互助网络',
+            '推动3个地区性和平协议纳入性别条款',
+            '女性参与和平进程比例从15%提升至35%'
+        ],
+        challenge: '2021年政变后项目被迫转型，采用线上+线下混合模式继续运作。',
+        impact: '该项目被联合国妇女署评为"亚太地区性别平等最佳实践"，为冲突地区女性赋权提供范式。'
+    }
+};
+
+// 打开项目弹窗
+function openProjectModal(projectId) {
+    const data = projectData[projectId];
+    const modal = document.getElementById('projectModal');
+    const content = document.getElementById('projectModalContent');
+
+    content.innerHTML = `
+        <div class="relative">
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 w-10 h-10 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-700 z-10">
+                ✕
+            </button>
+            <div class="h-48 bg-gradient-to-r ${data.gradient} flex items-center justify-center">
+                <span class="text-7xl">${data.icon}</span>
+            </div>
+            <div class="p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-${data.type === '冲突调解' ? 'orange' : data.type === '和平教育' ? 'blue' : 'purple'}-100 text-${data.type === '冲突调解' ? 'orange' : data.type === '和平教育' ? 'blue' : 'purple'}-700 rounded-full text-sm">${data.type}</span>
+                    <span class="text-sm text-gray-400">${data.period}</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">${data.title}</h2>
+                <p class="text-gray-500 mb-4">📍 ${data.location} · 👥 受益人数: ${data.participants}</p>
+
+                <div class="bg-gray-50 rounded-xl p-5 mb-6">
+                    <h3 class="font-semibold mb-2">项目简介</h3>
+                    <p class="text-gray-600 leading-relaxed">${data.description}</p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-semibold mb-3">主要成果</h3>
+                    <div class="space-y-2">
+                        ${data.achievements.map(a => `
+                            <div class="flex items-center">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <span class="text-gray-600">${a}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-xl p-5 mb-6">
+                    <h3 class="font-semibold mb-2 text-yellow-800">面临的挑战</h3>
+                    <p class="text-yellow-700">${data.challenge}</p>
+                </div>
+
+                <div class="bg-green-50 border-l-4 border-green-500 rounded-r-xl p-5">
+                    <h3 class="font-semibold mb-2 text-green-800">影响力</h3>
+                    <p class="text-green-700">${data.impact}</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    document.getElementById('projectModal').classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+// 点击遮罩关闭
+document.getElementById('projectModal').addEventListener('click', function(e) {
+    if (e.target === this) closeProjectModal();
+});
+
+// ESC键关闭
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeProjectModal();
+});
+
+// 动态筛选
+function filterNews(category) {
+    const cards = document.querySelectorAll('[data-category]');
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
+{% endblock %}

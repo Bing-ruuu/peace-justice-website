@@ -1,0 +1,510 @@
+{% extends "base.html" %}
+
+{% block title %}正义天平 - 和平、正义与强大机构{% endblock %}
+
+{% block content %}
+<!-- Banner区 -->
+<section class="gradient-bg py-20 px-6 text-center text-white">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">正义天平 · 守护公平与法治</h1>
+    <p class="text-xl text-gray-200 mb-8">人人平等 · 法律面前无例外</p>
+    <div class="flex flex-wrap justify-center gap-4">
+        <button onclick="scrollToChart()" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">法治指数看板</button>
+        <a href="#legal-aid" class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg font-semibold transition-colors">法律援助</a>
+    </div>
+</section>
+
+<!-- 法治指数看板 -->
+<section id="chart-section" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">全球法治指数</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-gray-50 rounded-xl p-6">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">2023年法治指数排名</h3>
+                <div id="rule-law-bar" class="w-full h-80"></div>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">法治指数趋势</h3>
+                <div id="rule-law-line" class="w-full h-80"></div>
+            </div>
+        </div>
+        <!-- 关键指标卡片 -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+            <div class="bg-blue-50 rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-blue-600">85.2</div>
+                <div class="text-sm text-gray-600 mt-2">全球平均法治指数</div>
+            </div>
+            <div class="bg-green-50 rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-green-600">92%</div>
+                <div class="text-sm text-gray-600 mt-2">司法独立性评分</div>
+            </div>
+            <div class="bg-purple-50 rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-purple-600">78%</div>
+                <div class="text-sm text-gray-600 mt-2">反腐成效指数</div>
+            </div>
+            <div class="bg-orange-50 rounded-xl p-6 text-center">
+                <div class="text-3xl font-bold text-orange-600">2.3B</div>
+                <div class="text-sm text-gray-600 mt-2">年度法律援助人次</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 正义编年史 -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">正义编年史</h2>
+        <div class="relative">
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-300"></div>
+            <div class="space-y-12">
+                <div class="relative flex items-center">
+                    <div class="w-1/2 text-right pr-8">
+                        <div class="bg-white rounded-xl p-6 shadow inline-block">
+                            <div class="text-blue-600 font-bold mb-2">1948</div>
+                            <h4 class="text-lg font-semibold">《世界人权宣言》发布</h4>
+                            <p class="text-gray-600 text-sm mt-2">联合国大会通过，确立普世人权标准</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
+                    <div class="w-1/2"></div>
+                </div>
+                <div class="relative flex items-center">
+                    <div class="w-1/2"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full border-4 border-white"></div>
+                    <div class="w-1/2 text-left pl-8">
+                        <div class="bg-white rounded-xl p-6 shadow inline-block">
+                            <div class="text-green-600 font-bold mb-2">1966</div>
+                            <h4 class="text-lg font-semibold">《公民权利和政治权利国际公约》</h4>
+                            <p class="text-gray-600 text-sm mt-2">具有法律约束力的人权条约</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex items-center">
+                    <div class="w-1/2 text-right pr-8">
+                        <div class="bg-white rounded-xl p-6 shadow inline-block">
+                            <div class="text-purple-600 font-bold mb-2">1985</div>
+                            <h4 class="text-lg font-semibold">《联合国少年司法最低限度标准规则》</h4>
+                            <p class="text-gray-600 text-sm mt-2">保障少年司法中的基本权利</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full border-4 border-white"></div>
+                    <div class="w-1/2"></div>
+                </div>
+                <div class="relative flex items-center">
+                    <div class="w-1/2"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-600 rounded-full border-4 border-white"></div>
+                    <div class="w-1/2 text-left pl-8">
+                        <div class="bg-white rounded-xl p-6 shadow inline-block">
+                            <div class="text-orange-600 font-bold mb-2">2015</div>
+                            <h4 class="text-lg font-semibold">联合国可持续发展目标(SDGs)通过</h4>
+                            <p class="text-gray-600 text-sm mt-2">SDG16聚焦和平、正义与强大机构</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 法律援助与资源 -->
+<section id="legal-aid" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">法律援助与资源</h2>
+        <div class="max-w-xl mx-auto mb-8">
+            <div class="relative">
+                <input type="text" id="legal-search" placeholder="搜索法律资源..."
+                    class="w-full px-6 py-4 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">搜索</button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300">
+                <div class="text-4xl mb-4">📋</div>
+                <h4 class="text-lg font-semibold mb-2">法律文书模板</h4>
+                <p class="text-gray-600 text-sm mb-4">各类合同、诉状标准化模板下载</p>
+                <button class="text-blue-600 hover:text-blue-800 font-semibold">下载模板 →</button>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300">
+                <div class="text-4xl mb-4">💬</div>
+                <h4 class="text-lg font-semibold mb-2">在线咨询</h4>
+                <p class="text-gray-600 text-sm mb-4">专业律师在线答疑解惑</p>
+                <button class="text-blue-600 hover:text-blue-800 font-semibold">立即咨询 →</button>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300">
+                <div class="text-4xl mb-4">📚</div>
+                <h4 class="text-lg font-semibold mb-2">法律知识库</h4>
+                <p class="text-gray-600 text-sm mb-4">法律法规数据库查询</p>
+                <button class="text-blue-600 hover:text-blue-800 font-semibold">进入知识库 →</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 典型案例 -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">典型案例</h2>
+        <p class="text-center text-gray-500 mb-12">法治建设里程碑事件（点击卡片查看详情）</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 案例1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('brown')">
+                <div class="h-40 bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center">
+                    <span class="text-5xl">⚖️</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">民权运动</span>
+                        <span class="text-xs text-gray-400">1954年</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">布朗诉教育委员会案</h4>
+                    <p class="text-gray-600 text-sm">美国最高法院裁定"隔离但平等"原则违宪，废除种族隔离制度</p>
+                    <div class="mt-3 text-blue-600 text-sm flex items-center">
+                        <span>🏛️ 美国最高法院</span>
+                        <span class="ml-auto">点击查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 案例2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('kosovo')">
+                <div class="h-40 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+                    <span class="text-5xl">🌍</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">国际法</span>
+                        <span class="text-xs text-gray-400">2010年</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">科索沃独立咨询意见案</h4>
+                    <p class="text-gray-600 text-sm">国际法院就科索沃单方面宣布独立问题发表历史性咨询意见</p>
+                    <div class="mt-3 text-green-600 text-sm flex items-center">
+                        <span>🏛️ 国际法院(ICJ)</span>
+                        <span class="ml-auto">点击查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 案例3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('miranda')">
+                <div class="h-40 bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center">
+                    <span class="text-5xl">📜</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">人权保障</span>
+                        <span class="text-xs text-gray-400">1978年</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">米兰达诉亚利桑那案</h4>
+                    <p class="text-gray-600 text-sm">确立"米兰达警告"，保障嫌疑人保持沉默和获得律师的权利</p>
+                    <div class="mt-3 text-purple-600 text-sm flex items-center">
+                        <span>🏛️ 美国最高法院</span>
+                        <span class="ml-auto">点击查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 案例4 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('marshall')">
+                <div class="h-40 bg-gradient-to-r from-orange-500 to-red-600 flex items-center justify-center">
+                    <span class="text-5xl">⚡</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">环境保护</span>
+                        <span class="text-xs text-gray-400">2001年</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">马绍尔群岛核试验案</h4>
+                    <p class="text-gray-600 text-sm">国际法院就美国在太平洋核试验问题作出裁决，确立核试验国际法框架</p>
+                    <div class="mt-3 text-orange-600 text-sm flex items-center">
+                        <span>🏛️ 国际法院(ICJ)</span>
+                        <span class="ml-auto">点击查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 案例5 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('southafrica')">
+                <div class="h-40 bg-gradient-to-r from-indigo-500 to-blue-600 flex items-center justify-center">
+                    <span class="text-5xl">👥</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">社会正义</span>
+                        <span class="text-xs text-gray-400">2014年</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">南非真相与和解委员会</h4>
+                    <p class="text-gray-600 text-sm">通过调解与宽恕实现种族隔离后的社会和解，开创转型司法模式</p>
+                    <div class="mt-3 text-indigo-600 text-sm flex items-center">
+                        <span>🏛️ 南非宪法法院</span>
+                        <span class="ml-auto">点击查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 案例6 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('google')">
+                <div class="h-40 bg-gradient-to-r from-teal-500 to-cyan-600 flex items-center justify-center">
+                    <span class="text-5xl">🔧</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded">数字人权</span>
+                        <span class="text-xs text-gray-400">2013年</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">"被遗忘权"案</h4>
+                    <p class="text-gray-600 text-sm">欧洲法院裁定用户有权要求搜索引擎删除不相关、过时的个人信息</p>
+                    <div class="mt-3 text-teal-600 text-sm flex items-center">
+                        <span>🏛️ 欧洲法院(CJEU)</span>
+                        <span class="ml-auto">点击查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 案例详情弹窗 -->
+<div id="caseModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div id="modalContent"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function scrollToChart() {
+    document.getElementById('chart-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const barChart = echarts.init(document.getElementById('rule-law-bar'));
+    fetch('/api/rule-of-law-data')
+        .then(res => res.json())
+        .then(data => {
+            barChart.setOption({
+                tooltip: { trigger: 'axis' },
+                xAxis: { type: 'category', data: data.countries, axisLabel: { rotate: 30 } },
+                yAxis: { type: 'value', min: 0, max: 100 },
+                series: [{ data: data.scores, type: 'bar', itemStyle: { color: '#3b82f6' } }]
+            });
+        });
+
+    const lineChart = echarts.init(document.getElementById('rule-law-line'));
+    lineChart.setOption({
+        tooltip: { trigger: 'axis' },
+        xAxis: { type: 'category', data: ['2019', '2020', '2021', '2022', '2023'] },
+        yAxis: { type: 'value', min: 0, max: 100 },
+        series: [
+            {
+                name: '法治指数',
+                data: [82, 83, 81, 84, 85],
+                type: 'line',
+                areaStyle: { color: 'rgba(59, 130, 246, 0.3)' },
+                itemStyle: { color: '#3b82f6' }
+            }
+        ]
+    });
+
+    window.addEventListener('resize', () => {
+        barChart.resize();
+        lineChart.resize();
+    });
+});
+
+// 案例数据
+const caseData = {
+    brown: {
+        title: '布朗诉教育委员会案',
+        year: '1954年',
+        court: '美国最高法院',
+        category: '民权运动',
+        icon: '⚖️',
+        gradient: 'from-blue-500 to-blue-700',
+        background: 'bg-blue-50',
+        textColor: 'text-blue-700',
+        summary: '布朗诉教育委员会案（Brown v. Board of Education）是美国历史上最具影响力的民权案件之一。',
+        details: [
+            '1951年，堪萨斯州托皮卡市的非洲裔美国人Oliver Brown代表其女儿向地区法院提起诉讼，挑战当地学校种族隔离政策',
+            '地区法院依据"隔离但平等"原则判决Brown败诉',
+            'Brown向最高法院上诉，1954年最高法院一致裁定种族隔离学校违宪',
+            '首席大法官厄尔·沃伦宣布："隔离但平等的原则在公共教育领域没有立足之地"',
+            '此案彻底废除了美国各州的种族隔离学校制度，开启了民权运动的新篇章'
+        ],
+        significance: '此案从根本上改变了美国的种族关系，推动了1964年《民权法案》和1965年《投票权法案》的通过。'
+    },
+    kosovo: {
+        title: '科索沃独立咨询意见案',
+        year: '2010年',
+        court: '国际法院(ICJ)',
+        category: '国际法',
+        icon: '🌍',
+        gradient: 'from-green-500 to-teal-600',
+        background: 'bg-green-50',
+        textColor: 'text-green-700',
+        summary: '科索沃单方面宣布独立咨询意见案是国际法院就国家分离权问题作出的一项历史性裁决。',
+        details: [
+            '2008年2月17日，科索沃单方面宣布从塞尔维亚独立',
+            '塞尔维亚请求联合国大会就科索沃宣布独立是否符合国际法向国际法院请求咨询意见',
+            '2010年7月22日，国际法院以10票赞成、4票反对通过咨询意见',
+            '法院认为科索沃宣布独立不违反国际法',
+            '此案对国际法中自决权和国家承认原则产生深远影响'
+        ],
+        significance: '此案明确了单方面独立宣言在特定条件下的合法性，对全球分离主义运动具有重要参考价值。'
+    },
+    miranda: {
+        title: '米兰达诉亚利桑那案',
+        year: '1978年',
+        court: '美国最高法院',
+        category: '人权保障',
+        icon: '📜',
+        gradient: 'from-purple-500 to-purple-700',
+        background: 'bg-purple-50',
+        textColor: 'text-purple-700',
+        summary: '米兰达诉亚利桑那案确立了著名的"米兰达警告"，彻底改变了美国刑事司法程序。',
+        details: [
+            '1963年，Ernesto Miranda因涉嫌绑架和强奸被亚利桑那州警方逮捕并接受审讯',
+            '审讯前警方未告知Miranda享有宪法权利，最终获得供词并被定罪',
+            'Miranda以宪法第六修正案为由上诉，声称不知道自己有保持沉默和获得律师的权利',
+            '1966年，最高法院以5:4票推翻原判决，确立审讯前必须告知嫌疑人权利的原则',
+            '从此，所有被捕人员必须在审讯前被告知：你有权保持沉默，你所说的任何话都将被用作对你不利的证据'
+        ],
+        significance: '米兰达警告成为美国执法过程中必须遵守的基本程序，保障了嫌疑人的宪法权利。'
+    },
+    marshall: {
+        title: '马绍尔群岛核试验案',
+        year: '2001年',
+        court: '国际法院(ICJ)',
+        category: '环境保护',
+        icon: '⚡',
+        gradient: 'from-orange-500 to-red-600',
+        background: 'bg-orange-50',
+        textColor: 'text-orange-700',
+        summary: '马绍尔群岛诉美国核试验案是国际法院就核武器使用问题作出的重要裁决。',
+        details: [
+            '1946年至1958年间，美国在马绍尔群岛进行了67次核试验，对当地环境和居民造成严重伤害',
+            '1993年，马绍尔群岛向国际法院提起诉讼，指控美国在太平洋进行核试验违反国际法',
+            '1995年，法院裁定其对此案无管辖权',
+            '2001年，法院裁定部分美国的核试验不构成违反国际法',
+            '但此案推动了国际社会对核武器使用和环境权保护的深入讨论'
+        ],
+        significance: '此案确立了核试验国际法框架，推动了《全面禁止核试验条约》的制定。'
+    },
+    southafrica: {
+        title: '南非真相与和解委员会',
+        year: '2014年',
+        court: '南非宪法法院',
+        category: '社会正义',
+        icon: '👥',
+        gradient: 'from-indigo-500 to-blue-600',
+        background: 'bg-indigo-50',
+        textColor: 'text-indigo-700',
+        summary: '真相与和解委员会（Truth and Reconciliation Commission）是南非后种族隔离时代的重要司法创新。',
+        details: [
+            '1995年，曼德拉总统推动成立真相与和解委员会，由大主教Desmond Tutu担任主席',
+            '委员会授权调查1960年至1994年间的人权侵犯行为',
+            '采用听证会形式，让受害者和加害者双方面对面',
+            '加害者如果完全坦白并表示悔改，可获得大赦',
+            '超过20000人在委员会面前作证，揭露了种族隔离时期的黑暗历史'
+        ],
+        significance: '开创了"转型司法"模式，通过宽恕与和解而非报复实现社会转型，成为后冲突社会和解的典范。'
+    },
+    google: {
+        title: '"被遗忘权"案',
+        year: '2013年',
+        court: '欧洲法院(CJEU)',
+        category: '数字人权',
+        icon: '🔧',
+        gradient: 'from-teal-500 to-cyan-600',
+        background: 'bg-teal-50',
+        textColor: 'text-teal-700',
+        summary: '谷歌西班牙诉AEPD案确立了"被遗忘权"，开创了数字时代的隐私保护新范式。',
+        details: [
+            '2010年，西班牙男子Mario Costeja González要求谷歌删除关于其1998年房地产拍卖的过时信息',
+            '该信息虽已过期且无关当前情况，但在搜索结果中仍可被找到',
+            '欧洲法院2014年裁定，用户有权要求搜索引擎删除不相关、过时或过度的个人信息',
+            '法院认为个人"被遗忘权"与信息自由流动和公众知情权需要平衡',
+            '此后，全球超过100万人向谷歌提交了被遗忘权申请'
+        ],
+        significance: '此案确立了数字时代的隐私保护新标准，被遗忘权现已成为欧盟通用数据保护条例(GDPR)的重要组成部分。'
+    }
+};
+
+// 打开案例弹窗
+function openCaseModal(caseId) {
+    const data = caseData[caseId];
+    const modal = document.getElementById('caseModal');
+    const content = document.getElementById('modalContent');
+
+    content.innerHTML = `
+        <div class="relative">
+            <button onclick="closeCaseModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-700 z-10">
+                ✕
+            </button>
+            <div class="h-48 bg-gradient-to-r ${data.gradient} flex items-center justify-center">
+                <span class="text-7xl">${data.icon}</span>
+            </div>
+            <div class="p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-xs ${data.background} ${data.textColor} px-3 py-1 rounded-full">${data.category}</span>
+                    <span class="text-sm text-gray-400">${data.year}</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">${data.title}</h2>
+                <p class="text-gray-500 mb-4">${data.court}</p>
+
+                <div class="bg-gray-50 rounded-xl p-5 mb-6">
+                    <h3 class="font-semibold mb-2 flex items-center">
+                        <span class="w-2 h-2 ${data.textColor} bg-current rounded-full mr-2"></span>
+                        案件概述
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">${data.summary}</p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-semibold mb-3 flex items-center">
+                        <span class="w-2 h-2 ${data.textColor} bg-current rounded-full mr-2"></span>
+                        案件详情
+                    </h3>
+                    <ul class="space-y-3">
+                        ${data.details.map(d => `
+                            <li class="flex items-start">
+                                <span class="${data.textColor} mr-2">•</span>
+                                <span class="text-gray-600">${d}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 rounded-r-xl p-5">
+                    <h3 class="font-semibold mb-2 text-blue-800">历史意义</h3>
+                    <p class="text-blue-700">${data.significance}</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+// 关闭弹窗
+function closeCaseModal() {
+    const modal = document.getElementById('caseModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+// 点击遮罩关闭
+document.getElementById('caseModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeCaseModal();
+    }
+});
+
+// ESC键关闭
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeCaseModal();
+    }
+});
+</script>
+{% endblock %}

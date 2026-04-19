@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}和平、正义与强大机构{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #1e3a5f 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .nav-link:hover {
+            color: #60a5fa;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stat-counter {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+        }
+        /* 下拉菜单 */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu {
+            display: none;
+            animation: slideDown 0.2s ease-out;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* 深色模式 */
+        .dark {
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+        }
+        .dark .bg-white { background-color: #16213e !important; }
+        .dark .bg-gray-50 { background-color: #1a1a2e !important; }
+        .dark .bg-gray-100 { background-color: #16213e !important; }
+        .dark .text-gray-800 { color: #e0e0e0 !important; }
+        .dark .text-gray-700 { color: #d0d0d0 !important; }
+        .dark .text-gray-600 { color: #c0c0c0 !important; }
+        .dark .text-gray-500 { color: #a0a0a0 !important; }
+        .dark footer { background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%) !important; }
+        /* 平滑滚动 */
+        html { scroll-behavior: smooth; }
+        /* 加载动画 */
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(30, 58, 95, 0.95);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s;
+        }
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-dove {
+            animation: float 1.5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        /* 过渡效果 */
+        * {
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-gray-50">
+    <!-- 加载动画 -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="text-center text-white">
+            <div class="loading-dove text-8xl mb-4">🕊️</div>
+            <div class="text-xl font-semibold">正在加载...</div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="gradient-bg text-white py-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-2xl font-bold tracking-wide flex items-center gap-2">
+                    <span>🕊️</span>
+                    <span>和平正义</span>
+                </a>
+
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link transition-colors duration-300 hover:text-blue-300">首页</a>
+
+                    <!-- 和平视界下拉 -->
+                    <div class="dropdown relative">
+                        <a href="/peace" class="nav-link transition-colors duration-300 hover:text-blue-300 flex items-center gap-1">
+                            和平视界
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 text-gray-700">
+                            <a href="/peace#core-data" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">全球和平指数</a>
+                            <a href="/peace#projects" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">和平项目地图</a>
+                            <a href="/peace#news" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">最新和平动态</a>
+                        </div>
+                    </div>
+
+                    <!-- 正义天平下拉 -->
+                    <div class="dropdown relative">
+                        <a href="/justice" class="nav-link transition-colors duration-300 hover:text-blue-300 flex items-center gap-1">
+                            正义天平
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 text-gray-700">
+                            <a href="/justice#chart-section" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">法治指数看板</a>
+                            <a href="/justice#legal-aid" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">法律援助资源</a>
+                            <a href="/justice" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">典型司法案例</a>
+                        </div>
+                    </div>
+
+                    <!-- 透明机构下拉 -->
+                    <div class="dropdown relative">
+                        <a href="/institution" class="nav-link transition-colors duration-300 hover:text-blue-300 flex items-center gap-1">
+                            透明机构
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 text-gray-700">
+                            <a href="/institution#chart-section" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">清廉指数排行</a>
+                            <a href="/institution#feedback-section" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">公众反馈</a>
+                            <a href="/institution" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">反腐动态</a>
+                        </div>
+                    </div>
+
+                    <!-- SDG16下拉 -->
+                    <div class="dropdown relative">
+                        <a href="/sdg16" class="nav-link transition-colors duration-300 hover:text-blue-300 flex items-center gap-1">
+                            SDG16
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="dropdown-menu absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl py-2 text-gray-700">
+                            <a href="/sdg16" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">SDG16目标解读</a>
+                            <a href="/sdg16#action" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2">行动倡议</a>
+                            <a href="https://www.un.org/sustainabledevelopment/peace-justice/" target="_blank" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 rounded-lg mx-2 flex justify-between items-center">
+                                联合国SDG16官网
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧功能区 -->
+                <div class="flex items-center space-x-4">
+                    <!-- 深色模式切换 -->
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-white/10 transition-colors" title="切换深色模式">
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    </button>
+
+                    {% if session.get('user_id') %}
+                        <span class="text-sm hidden md:inline">欢迎，{{ session.get('username') }}</span>
+                        <a href="/logout" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg text-sm transition-colors">退出</a>
+                    {% else %}
+                        <a href="/login" class="hover:text-blue-300 transition-colors hidden md:inline">登录</a>
+                        <a href="/register" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg text-sm transition-colors">注册</a>
+                    {% endif %}
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 移动端导航 -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-white/20 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="/" class="px-4 py-2 hover:bg-white/10 rounded-lg">首页</a>
+                    <a href="/peace" class="px-4 py-2 hover:bg-white/10 rounded-lg">和平视界</a>
+                    <a href="/justice" class="px-4 py-2 hover:bg-white/10 rounded-lg">正义天平</a>
+                    <a href="/institution" class="px-4 py-2 hover:bg-white/10 rounded-lg">透明机构</a>
+                    <a href="/sdg16" class="px-4 py-2 hover:bg-white/10 rounded-lg">SDG16</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 消息提示 -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mx-auto px-6 pt-4">
+                {% for category, message in messages %}
+                    <div class="alert bg-{{ 'green' if category == 'success' else 'red' }}-100 border border-{{ 'green' if category == 'success' else 'red' }}-400 text-{{ 'green' if category == 'success' else 'red' }}-700 px-4 py-3 rounded mb-2">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- 主内容 -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="gradient-bg text-white py-12 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">关于本站</h3>
+                    <p class="text-gray-300 text-sm">致力于推动和平、正义与强大机构建设，促进全球可持续发展。数据来源权威，更新及时。</p>
+                    <div class="mt-4 text-xs text-gray-400">
+                        数据更新于 2024-04-01 | 下次更新：2024-07-01
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">快速链接</h3>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li><a href="/" class="hover:text-white transition-colors">首页</a></li>
+                        <li><a href="/peace" class="hover:text-white transition-colors">和平视界</a></li>
+                        <li><a href="/justice" class="hover:text-white transition-colors">正义天平</a></li>
+                        <li><a href="/institution" class="hover:text-white transition-colors">透明机构</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">数据来源</h3>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>• 经济与和平研究所(IEP)</li>
+                        <li>• 透明国际(TI)</li>
+                        <li>• 世界正义工程(WJP)</li>
+                        <li>• 联合国维和部</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">联系我们</h3>
+                    <p class="text-gray-300 text-sm">Email: contact@peace-justice.org</p>
+                    <p class="text-gray-300 text-sm mt-2">合作：partner@peace-justice.org</p>
+                    <div class="mt-4 flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" title="微信公众号">📱</a>
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" title="微博">🌐</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+                    <p>&copy; 2024 和平、正义与强大机构. All rights reserved.</p>
+                    <div class="flex space-x-4 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition-colors">隐私政策</a>
+                        <a href="#" class="hover:text-white transition-colors">使用条款</a>
+                        <a href="#" class="hover:text-white transition-colors">网站地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 加载动画
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            }, 800);
+        });
+
+        // 深色模式切换
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+
+        darkModeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            sunIcon.classList.toggle('hidden');
+            moonIcon.classList.toggle('hidden');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+        });
+
+        // 恢复深色模式
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        // 移动端菜单
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
