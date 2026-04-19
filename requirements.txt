@@ -4,3 +4,4 @@ flask-bcrypt
 psycopg2-binary 
 python-dotenv
 email-validator
+gunicorn
