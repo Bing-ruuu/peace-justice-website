@@ -19,7 +19,7 @@
         <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">全球清廉指数 (CPI) 排行榜</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div class="bg-gray-50 rounded-xl p-6">
-                <h3 class="text-xl font-semibold mb-4 text-gray-700">2023年各国清廉指数</h3>
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">2025年各国清廉指数</h3>
                 <div id="cpi-bar-chart" class="w-full h-80"></div>
             </div>
             <div class="bg-gray-50 rounded-xl p-6">
@@ -36,17 +36,17 @@
         <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">反腐动态</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white rounded-xl p-6 shadow card-hover transition-all duration-300">
-                <div class="text-sm text-purple-600 mb-2">2024-03-12</div>
+                <div class="text-sm text-purple-600 mb-2">2026-03-12</div>
                 <h4 class="text-lg font-semibold mb-2">联合国反腐败公约执行情况评估</h4>
                 <p class="text-gray-600 text-sm">最新评估显示各缔约国在资产追回和国际合作方面取得进展</p>
             </div>
             <div class="bg-white rounded-xl p-6 shadow card-hover transition-all duration-300">
-                <div class="text-sm text-purple-600 mb-2">2024-03-08</div>
+                <div class="text-sm text-purple-600 mb-2">2026-03-08</div>
                 <h4 class="text-lg font-semibold mb-2">反腐科技工具应用研讨会召开</h4>
                 <p class="text-gray-600 text-sm">探讨大数据和AI在反腐败调查中的应用与挑战</p>
             </div>
             <div class="bg-white rounded-xl p-6 shadow card-hover transition-all duration-300">
-                <div class="text-sm text-purple-600 mb-2">2024-03-01</div>
+                <div class="text-sm text-purple-600 mb-2">2026-03-01</div>
                 <h4 class="text-lg font-semibold mb-2">全球反腐论坛在柏林闭幕</h4>
                 <p class="text-gray-600 text-sm">论坛达成多项共识，包括加强跨境信息共享机制</p>
             </div>
@@ -151,8 +151,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(res => res.json())
         .then(result => {
             const msg = document.getElementById('feedback-message');
-            msg.classList.remove('hidden');
-            msg.className = 'mt-4 text-center p-4 rounded-lg ' + (result.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700');
+            msg.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'bg-red-100', 'text-red-700');
+            if (result.success) {
+                msg.classList.add('bg-green-100', 'text-green-700', 'mt-4', 'text-center', 'p-4', 'rounded-lg');
+            } else {
+                msg.classList.add('bg-red-100', 'text-red-700', 'mt-4', 'text-center', 'p-4', 'rounded-lg');
+            }
             msg.textContent = result.message;
             if (result.success) this.reset();
         });

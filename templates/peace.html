@@ -21,7 +21,7 @@
     <div class="container mx-auto px-6">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-800 mb-4">核心数据指标</h2>
-            <p class="text-gray-500">数据来源：经济与和平研究所(IEP)、联合国维和部、世界银行 · 更新至2024年</p>
+            <p class="text-gray-500">数据来源：经济与和平研究所(IEP)、联合国维和部、世界银行 · 更新至2026年</p>
         </div>
 
         <!-- 四大核心指标卡片 -->
@@ -30,7 +30,7 @@
             <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-green-500 card-hover transition-all duration-300">
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-3xl">🕊️</span>
-                    <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">2024年</span>
+                    <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">2026年</span>
                 </div>
                 <div class="text-4xl font-bold text-gray-800 mb-1">2.1</div>
                 <div class="text-sm text-gray-500 mb-3">全球和平指数 (GPI)</div>
@@ -57,7 +57,7 @@
             <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-red-500 card-hover transition-all duration-300">
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-3xl">⚔️</span>
-                    <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded-full">2024年</span>
+                    <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded-full">2026年</span>
                 </div>
                 <div class="text-4xl font-bold text-gray-800 mb-1">56</div>
                 <div class="text-sm text-gray-500 mb-3">活跃武装冲突地区</div>
@@ -108,7 +108,7 @@
             <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-purple-500 card-hover transition-all duration-300">
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-3xl">⚖️</span>
-                    <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">2024年</span>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">2026年</span>
                 </div>
                 <div class="text-4xl font-bold text-gray-800 mb-1">4.2B</div>
                 <div class="text-sm text-gray-500 mb-3">法治覆盖人口</div>
@@ -129,7 +129,7 @@
         <div class="bg-white rounded-2xl p-6 shadow-lg mb-8">
             <h3 class="text-xl font-semibold mb-6 text-gray-700 flex items-center">
                 <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
-                2024年全球和平指数 Top 10
+                2026年全球和平指数 Top 10
             </h3>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
                 <div class="text-center p-4 bg-gradient-to-b from-yellow-50 to-white rounded-xl border border-yellow-200">
@@ -170,7 +170,7 @@
                         <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
                         各大洲和平指数对比
                     </h3>
-                    <span class="text-xs text-gray-400">2024年数据</span>
+                    <span class="text-xs text-gray-400">2026年数据</span>
                 </div>
                 <div id="peace-bar-chart" class="w-full h-72"></div>
             </div>
@@ -182,7 +182,7 @@
                         <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
                         近10年和平指数趋势
                     </h3>
-                    <span class="text-xs text-gray-400">2015-2024</span>
+                    <span class="text-xs text-gray-400">2015-2026</span>
                 </div>
                 <div id="peace-trend-chart" class="w-full h-72"></div>
             </div>
@@ -373,11 +373,11 @@
 
         <!-- 动态分类标签 -->
         <div class="flex flex-wrap justify-center gap-3 mb-10">
-            <button class="px-4 py-2 bg-green-600 text-white rounded-full text-sm font-semibold" onclick="filterNews('all')">全部</button>
-            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews('dialogue')">冲突调解</button>
-            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews('peacekeeping')">维和行动</button>
-            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews('agreement')">和平协议</button>
-            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews('education')">和平教育</button>
+            <button class="px-4 py-2 bg-green-600 text-white rounded-full text-sm font-semibold" onclick="filterNews(this,'all')">全部</button>
+            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews(this,'dialogue')">冲突调解</button>
+            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews(this,'peacekeeping')">维和行动</button>
+            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews(this,'agreement')">和平协议</button>
+            <button class="px-4 py-2 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterNews(this,'education')">和平教育</button>
         </div>
 
         <!-- 动态卡片 -->
@@ -389,7 +389,7 @@
                     <span class="absolute top-3 left-3 px-2 py-1 bg-green-600 text-white text-xs rounded">冲突调解</span>
                 </div>
                 <div class="p-6">
-                    <div class="text-xs text-gray-400 mb-2">2024-04-15 · 来源：联合国和平建设委员会</div>
+                    <div class="text-xs text-gray-400 mb-2">2026-04-15 · 来源：联合国和平建设委员会</div>
                     <h4 class="text-lg font-semibold mb-3">东亚和平对话取得突破性进展</h4>
                     <p class="text-gray-600 text-sm mb-4">中国、日本、韩国及朝鲜代表在北京举行四方会谈，就朝鲜半岛无核化路径达成新的共识框架，为重启六方会谈奠定基础。</p>
                     <div class="flex items-center justify-between text-sm">
@@ -406,7 +406,7 @@
                     <span class="absolute top-3 left-3 px-2 py-1 bg-blue-600 text-white text-xs rounded">维和行动</span>
                 </div>
                 <div class="p-6">
-                    <div class="text-xs text-gray-400 mb-2">2024-04-10 · 来源：联合国维和部</div>
+                    <div class="text-xs text-gray-400 mb-2">2026-04-10 · 来源：联合国维和部</div>
                     <h4 class="text-lg font-semibold mb-3">联合国维和部队完成马里任务交接</h4>
                     <p class="text-gray-600 text-sm mb-4">联合国马里多层面综合稳定团(MINUSMA)完成历史性过渡，将安全职责移交给马里政府，标志着该地区维和行动进入新阶段。</p>
                     <div class="flex items-center justify-between text-sm">
@@ -423,7 +423,7 @@
                     <span class="absolute top-3 left-3 px-2 py-1 bg-purple-600 text-white text-xs rounded">和平协议</span>
                 </div>
                 <div class="p-6">
-                    <div class="text-xs text-gray-400 mb-2">2024-04-05 · 来源：非洲联盟</div>
+                    <div class="text-xs text-gray-400 mb-2">2026-04-05 · 来源：非洲联盟</div>
                     <h4 class="text-lg font-semibold mb-3">埃塞俄比亚提格雷地区正式签署停火协议</h4>
                     <p class="text-gray-600 text-sm mb-4">经过非盟调解，埃塞俄比亚政府与提格雷人民解放阵线签署永久停火协议，结束持续三年的武装冲突，开启重建进程。</p>
                     <div class="flex items-center justify-between text-sm">
@@ -440,7 +440,7 @@
                     <span class="absolute top-3 left-3 px-2 py-1 bg-yellow-600 text-white text-xs rounded">和平教育</span>
                 </div>
                 <div class="p-6">
-                    <div class="text-xs text-gray-400 mb-2">2024-03-28 · 来源：联合国教科文组织</div>
+                    <div class="text-xs text-gray-400 mb-2">2026-03-28 · 来源：联合国教科文组织</div>
                     <h4 class="text-lg font-semibold mb-3">全球和平教育网络覆盖突破10万所学校</h4>
                     <p class="text-gray-600 text-sm mb-4">UNESCO宣布"和平教育全球框架"已覆盖152个国家的10.2万所学校，将冲突解决、跨文化理解纳入核心课程体系。</p>
                     <div class="flex items-center justify-between text-sm">
@@ -457,7 +457,7 @@
                     <span class="absolute top-3 left-3 px-2 py-1 bg-teal-600 text-white text-xs rounded">冲突调解</span>
                 </div>
                 <div class="p-6">
-                    <div class="text-xs text-gray-400 mb-2">2024-03-20 · 来源：红十字国际委员会</div>
+                    <div class="text-xs text-gray-400 mb-2">2026-03-20 · 来源：红十字国际委员会</div>
                     <h4 class="text-lg font-semibold mb-3">缅甸若开邦人道主义停火协议生效</h4>
                     <p class="text-gray-600 text-sm mb-4">在红十字国际委员会推动下，缅甸军方与若开军达成临时停火协议，允许人道主义救援物资进入冲突地区。</p>
                     <div class="flex items-center justify-between text-sm">
@@ -474,7 +474,7 @@
                     <span class="absolute top-3 left-3 px-2 py-1 bg-indigo-600 text-white text-xs rounded">维和行动</span>
                 </div>
                 <div class="p-6">
-                    <div class="text-xs text-gray-400 mb-2">2024-03-15 · 来源：联合国秘书处</div>
+                    <div class="text-xs text-gray-400 mb-2">2026-03-15 · 来源：联合国秘书处</div>
                     <h4 class="text-lg font-semibold mb-3">联合国启动女性维和人员加速部署计划</h4>
                     <p class="text-gray-600 text-sm mb-4">古特雷斯秘书长宣布"女性参与维和行动计划"，目标在2027年前将女性维和人员比例从16%提升至25%。</p>
                     <div class="flex items-center justify-between text-sm">
@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', function() {
         legend: { data: ['全球平均', '发达国家', '发展中国家'], bottom: 0 },
         xAxis: {
             type: 'category',
-            data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024']
+            data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']
         },
         yAxis: {
             type: 'value',
@@ -550,7 +550,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: '全球平均',
                 type: 'line',
                 smooth: true,
-                data: [72, 71, 70, 69, 68, 65, 66, 67, 68, 69],
+                data: [72, 71, 70, 69, 68, 65, 66, 67, 68, 69, 70, 71],
                 itemStyle: { color: '#3b82f6' },
                 areaStyle: { color: 'rgba(59, 130, 246, 0.1)' }
             },
@@ -558,14 +558,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: '发达国家',
                 type: 'line',
                 smooth: true,
-                data: [85, 86, 85, 84, 85, 83, 84, 85, 86, 87],
+                data: [85, 86, 85, 84, 85, 83, 84, 85, 86, 87, 87, 88],
                 itemStyle: { color: '#10b981' }
             },
             {
                 name: '发展中国家',
                 type: 'line',
                 smooth: true,
-                data: [58, 57, 56, 55, 54, 52, 53, 54, 55, 56],
+                data: [58, 57, 56, 55, 54, 52, 53, 54, 55, 56, 57, 57],
                 itemStyle: { color: '#f97316' }
             }
         ]
@@ -738,8 +738,15 @@ document.addEventListener('keydown', function(e) {
 });
 
 // 动态筛选
-function filterNews(category) {
+function filterNews(btn, category) {
     const cards = document.querySelectorAll('[data-category]');
+    const buttons = document.querySelectorAll('[onclick^="filterNews"]');
+    buttons.forEach(b => {
+        b.classList.remove('bg-green-600', 'text-white');
+        b.classList.add('bg-white', 'text-gray-600', 'border', 'border-gray-300');
+    });
+    btn.classList.remove('bg-white', 'text-gray-600', 'border', 'border-gray-300');
+    btn.classList.add('bg-green-600', 'text-white');
     cards.forEach(card => {
         if (category === 'all' || card.dataset.category === category) {
             card.style.display = 'block';

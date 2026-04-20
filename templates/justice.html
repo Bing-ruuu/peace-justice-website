@@ -19,7 +19,7 @@
         <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">全球法治指数</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div class="bg-gray-50 rounded-xl p-6">
-                <h3 class="text-xl font-semibold mb-4 text-gray-700">2023年法治指数排名</h3>
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">2025年法治指数排名</h3>
                 <div id="rule-law-bar" class="w-full h-80"></div>
             </div>
             <div class="bg-gray-50 rounded-xl p-6">
@@ -113,23 +113,24 @@
             <div class="relative">
                 <input type="text" id="legal-search" placeholder="搜索法律资源..."
                     class="w-full px-6 py-4 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">搜索</button>
+                <button onclick="doLegalSearch()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">搜索</button>
             </div>
+            <div id="legal-search-hint" class="mt-2 text-sm text-center text-gray-400 hidden">没有找到匹配的法律资源</div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="legal-cards">
+            <div class="legal-card bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300" data-keywords="合同 诉状 模板 文书">
                 <div class="text-4xl mb-4">📋</div>
                 <h4 class="text-lg font-semibold mb-2">法律文书模板</h4>
                 <p class="text-gray-600 text-sm mb-4">各类合同、诉状标准化模板下载</p>
                 <button class="text-blue-600 hover:text-blue-800 font-semibold">下载模板 →</button>
             </div>
-            <div class="bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300">
+            <div class="legal-card bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300" data-keywords="咨询 律师 在线 问答">
                 <div class="text-4xl mb-4">💬</div>
                 <h4 class="text-lg font-semibold mb-2">在线咨询</h4>
                 <p class="text-gray-600 text-sm mb-4">专业律师在线答疑解惑</p>
                 <button class="text-blue-600 hover:text-blue-800 font-semibold">立即咨询 →</button>
             </div>
-            <div class="bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300">
+            <div class="legal-card bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300" data-keywords="法规 数据库 知识 查询">
                 <div class="text-4xl mb-4">📚</div>
                 <h4 class="text-lg font-semibold mb-2">法律知识库</h4>
                 <p class="text-gray-600 text-sm mb-4">法律法规数据库查询</p>
@@ -275,6 +276,26 @@
 function scrollToChart() {
     document.getElementById('chart-section').scrollIntoView({ behavior: 'smooth' });
 }
+
+function doLegalSearch() {
+    const query = document.getElementById('legal-search').value.trim().toLowerCase();
+    const cards = document.querySelectorAll('.legal-card');
+    const hint = document.getElementById('legal-search-hint');
+    let anyVisible = false;
+    cards.forEach(card => {
+        const text = (card.textContent + ' ' + (card.dataset.keywords || '')).toLowerCase();
+        const match = !query || text.includes(query);
+        card.style.display = match ? '' : 'none';
+        if (match) anyVisible = true;
+    });
+    hint.classList.toggle('hidden', anyVisible);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('legal-search').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') doLegalSearch();
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     const barChart = echarts.init(document.getElementById('rule-law-bar'));
