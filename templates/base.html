@@ -29,17 +29,19 @@
             backdrop-filter: blur(10px);
         }
         /* 下拉菜单 */
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
         .dropdown-menu {
             display: none;
             animation: slideDown 0.2s ease-out;
+        }
+        .dropdown-menu.show {
+            display: block;
         }
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .faq-arrow { transition: transform 0.2s ease; }
+        .rotate-180 { transform: rotate(180deg); }
         /* 深色模式 */
         .dark {
             background-color: #1a1a2e;
@@ -88,7 +90,12 @@
     <!-- 加载动画 -->
     <div id="loadingOverlay" class="loading-overlay">
         <div class="text-center text-white">
-            <div class="loading-dove text-8xl mb-4">🕊️</div>
+            <div class="loading-dove mb-4">
+            <svg class="w-20 h-20 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 15C35 15 25 30 20 45C10 50 5 65 15 75C25 85 45 80 50 70C55 80 75 85 85 75C95 65 90 50 80 45C75 30 65 15 50 15Z" fill="currentColor" opacity="0.9"/>
+                <path d="M50 15C45 5 30 5 25 15C20 25 30 35 50 50C70 35 80 25 75 15C70 5 55 5 50 15Z" fill="currentColor" opacity="0.6"/>
+            </svg>
+        </div>
             <div class="text-xl font-semibold">正在加载...</div>
         </div>
     </div>
@@ -98,7 +105,10 @@
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
                 <a href="/" class="text-2xl font-bold tracking-wide flex items-center gap-2">
-                    <span>🕊️</span>
+                    <svg class="w-7 h-7 text-white" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 15C35 15 25 30 20 45C10 50 5 65 15 75C25 85 45 80 50 70C55 80 75 85 85 75C95 65 90 50 80 45C75 30 65 15 50 15Z" opacity="0.9"/>
+                        <path d="M50 15C45 5 30 5 25 15C20 25 30 35 50 50C70 35 80 25 75 15C70 5 55 5 50 15Z" opacity="0.6"/>
+                    </svg>
                     <span>和平正义</span>
                 </a>
 
@@ -250,8 +260,12 @@
                     <p class="text-gray-300 text-sm">Email: contact@peace-justice.org</p>
                     <p class="text-gray-300 text-sm mt-2">合作：partner@peace-justice.org</p>
                     <div class="mt-4 flex space-x-3">
-                        <a href="#" class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" title="微信公众号">📱</a>
-                        <a href="#" class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" title="微博">🌐</a>
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" title="微信公众号">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8.5 13.5a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zM12 2C6.48 2 2 6.48 2 12c0 2.5.92 4.78 2.44 6.54l-.98 3.37 3.37-.98A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" title="微博">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.194 14.197c0 3.267-4.017 6.027-9.195 6.027-5.177 0-9.193-2.76-9.193-6.027 0-3.268 4.016-5.915 9.193-5.915 5.178 0 9.195 2.647 9.195 5.915z"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -298,6 +312,23 @@
         // 移动端菜单
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // 下拉菜单延迟关闭（200ms）
+        let dropdownTimeout;
+        document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+            const menu = dropdown.querySelector('.dropdown-menu');
+            if (!menu) return;
+
+            dropdown.addEventListener('mouseenter', function() {
+                clearTimeout(dropdownTimeout);
+                menu.classList.add('show');
+            });
+            dropdown.addEventListener('mouseleave', function() {
+                dropdownTimeout = setTimeout(function() {
+                    menu.classList.remove('show');
+                }, 200);
+            });
         });
     </script>
     {% block extra_js %}{% endblock %}
