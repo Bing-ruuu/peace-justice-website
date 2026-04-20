@@ -43,7 +43,7 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
 
-        response = supabase.table('users').select('*').eq('email', email).execute()
+        response = supabase.table('User').select('*').eq('email', email).execute()
         users = response.data
 
         if len(users) == 0:
@@ -75,20 +75,20 @@ def register():
             return render_template('register.html')
 
         # 检查邮箱是否已存在
-        response = supabase.table('users').select('id').eq('email', email).execute()
+        response = supabase.table('User').select('id').eq('email', email).execute()
         if len(response.data) > 0:
             flash('该邮箱已被注册', 'error')
             return render_template('register.html')
 
         # 检查用户名是否已存在
-        response = supabase.table('users').select('id').eq('username', username).execute()
+        response = supabase.table('User').select('id').eq('username', username).execute()
         if len(response.data) > 0:
             flash('该用户名已被使用', 'error')
             return render_template('register.html')
 
         # 创建用户
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-        supabase.table('users').insert({
+        supabase.table('User').insert({
             'username': username,
             'email': email,
             'password': hashed_password
@@ -103,7 +103,7 @@ def register():
 def forgot():
     if request.method == 'POST':
         email = request.form.get('email')
-        response = supabase.table('users').select('id').eq('email', email).execute()
+        response = supabase.table('User').select('id').eq('email', email).execute()
         if len(response.data) > 0:
             flash('密码重置链接已发送', 'success')
         else:
