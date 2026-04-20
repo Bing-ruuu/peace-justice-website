@@ -1,40 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
-from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from supabase import create_client, Client
 import os
 
 app = Flask(__name__)
 
-# ===================== 核心配置（直接写在这里，不依赖外部文件）=====================
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-key-for-test')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///site.db').replace("postgres://", "postgresql://")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# ===================== 核心配置 =====================
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'peace-justice-secret-key-2024')
 
-# 初始化数据库和加密
-db = SQLAlchemy(app)
+# Supabase 配置
+SUPABASE_URL = os.getenv('SUPABASE_URL', 'https://gkbotpktujixjgqgavbn.supabase.co')
+SUPABASE_KEY = os.getenv('SUPABASE_KEY', 'sb_publishable_6ZMIZDkrnRynyi6MVjOU5Q_1jMngjS4')
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 bcrypt = Bcrypt(app)
-
-# ===================== 用户模型 =====================
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
-
-    def set_password(self, password):
-        self.password = bcrypt.generate_password_hash(password).decode('utf-8')
-
-    def check_password(self, password):
-        return bcrypt.check_password_hash(self.password, password)
-
-# ===================== 反馈模型 =====================
-class Feedback(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(120), nullable=False)
-    type = db.Column(db.String(50), nullable=False)
-    content = db.Column(db.Text, nullable=False)
 
 # ===================== 页面路由 =====================
 @app.route('/')
@@ -63,15 +42,23 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
-        user = User.query.filter_by(email=email).first()
 
-        if user and user.check_password(password):
-            session['user_id'] = user.id
-            session['username'] = user.username
-            flash('登录成功！', 'success')
-            return redirect(url_for('index'))
-        else:
+        response = supabase.table('users').select('*').eq('email', email).execute()
+        users = response.data
+
+        if len(users) == 0:
             flash('邮箱或密码错误', 'error')
+            return render_template('login.html')
+
+        user = users[0]
+        if not bcrypt.check_password_hash(user['password'], password):
+            flash('邮箱或密码错误', 'error')
+            return render_template('login.html')
+
+        session['user_id'] = user['id']
+        session['username'] = user['username']
+        flash('登录成功！', 'success')
+        return redirect(url_for('index'))
 
     return render_template('login.html')
 
@@ -87,18 +74,25 @@ def register():
             flash('两次密码不一致', 'error')
             return render_template('register.html')
 
-        if User.query.filter_by(email=email).first():
+        # 检查邮箱是否已存在
+        response = supabase.table('users').select('id').eq('email', email).execute()
+        if len(response.data) > 0:
             flash('该邮箱已被注册', 'error')
             return render_template('register.html')
 
-        if User.query.filter_by(username=username).first():
+        # 检查用户名是否已存在
+        response = supabase.table('users').select('id').eq('username', username).execute()
+        if len(response.data) > 0:
             flash('该用户名已被使用', 'error')
             return render_template('register.html')
 
-        new_user = User(username=username, email=email)
-        new_user.set_password(password)
-        db.session.add(new_user)
-        db.session.commit()
+        # 创建用户
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        supabase.table('users').insert({
+            'username': username,
+            'email': email,
+            'password': hashed_password
+        }).execute()
 
         flash('注册成功，请登录', 'success')
         return redirect(url_for('login'))
@@ -109,8 +103,8 @@ def register():
 def forgot():
     if request.method == 'POST':
         email = request.form.get('email')
-        user = User.query.filter_by(email=email).first()
-        if user:
+        response = supabase.table('users').select('id').eq('email', email).execute()
+        if len(response.data) > 0:
             flash('密码重置链接已发送', 'success')
         else:
             flash('邮箱未注册', 'error')
@@ -134,15 +128,14 @@ def submit_feedback():
     if not all([name, email, feedback_type, content]):
         return jsonify({'success': False, 'message': '请填写所有字段'})
 
-    new_feedback = Feedback(
-        user_id=session.get('user_id'),
-        name=name,
-        email=email,
-        type=feedback_type,
-        content=content
-    )
-    db.session.add(new_feedback)
-    db.session.commit()
+    supabase.table('feedbacks').insert({
+        'user_id': session.get('user_id'),
+        'name': name,
+        'email': email,
+        'type': feedback_type,
+        'content': content
+    }).execute()
+
     return jsonify({'success': True, 'message': '反馈提交成功'})
 
 # ===================== API 数据 =====================
