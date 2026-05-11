@@ -4,184 +4,301 @@
 
 {% block content %}
 <!-- Banner区 -->
-<section class="gradient-bg py-20 px-6 text-center text-white">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">正义天平 · 守护公平与法治</h1>
-    <p class="text-xl text-gray-200 mb-8">人人平等 · 法律面前无例外</p>
-    <div class="flex flex-wrap justify-center gap-4">
-        <button onclick="scrollToChart()" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">法治指数看板</button>
-        <a href="#legal-aid" class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg font-semibold transition-colors">法律援助</a>
+<section class="gradient-bg py-20 px-6 text-center text-white relative overflow-hidden">
+    <!-- 背景装饰图 -->
+    <div class="absolute inset-0 opacity-10">
     </div>
-</section>
 
-<!-- 法治指数看板 -->
-<section id="chart-section" class="py-16 bg-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">全球法治指数</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="bg-gray-50 rounded-xl p-6">
-                <h3 class="text-xl font-semibold mb-4 text-gray-700">2025年法治指数排名</h3>
-                <div id="rule-law-bar" class="w-full h-80"></div>
-            </div>
-            <div class="bg-gray-50 rounded-xl p-6">
-                <h3 class="text-xl font-semibold mb-4 text-gray-700">法治指数趋势</h3>
-                <div id="rule-law-line" class="w-full h-80"></div>
-            </div>
-        </div>
-        <!-- 关键指标卡片 -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-            <div class="bg-blue-50 rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold text-blue-600">85.2</div>
-                <div class="text-sm text-gray-600 mt-2">全球平均法治指数</div>
-            </div>
-            <div class="bg-green-50 rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold text-green-600">92%</div>
-                <div class="text-sm text-gray-600 mt-2">司法独立性评分</div>
-            </div>
-            <div class="bg-purple-50 rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold text-purple-600">78%</div>
-                <div class="text-sm text-gray-600 mt-2">反腐成效指数</div>
-            </div>
-            <div class="bg-orange-50 rounded-xl p-6 text-center">
-                <div class="text-3xl font-bold text-orange-600">2.3B</div>
-                <div class="text-sm text-gray-600 mt-2">年度法律援助人次</div>
-            </div>
+    <div class="relative z-10">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">正义天平 · 守护公平与法治</h1>
+        <p class="text-xl text-gray-200 mb-8">人人平等 · 法律面前无例外</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button onclick="scrollToChart()" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">法治指数看板</button>
+            <a href="#legal-aid" class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg font-semibold transition-colors">法律援助</a>
         </div>
     </div>
 </section>
 
-<!-- 正义编年史 -->
-<section class="py-16 bg-gray-50">
+<!-- 法治指数看板 - 全新设计版 -->
+<section id="chart-section" class="py-12 bg-gray-50">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">正义编年史</h2>
-        <div class="relative">
-            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-300"></div>
-            <div class="space-y-12">
-                <div class="relative flex items-center">
-                    <div class="w-1/2 text-right pr-8">
-                        <div class="bg-white rounded-xl p-6 shadow inline-block">
-                            <div class="text-blue-600 font-bold mb-2">1948</div>
-                            <h4 class="text-lg font-semibold">《世界人权宣言》发布</h4>
-                            <p class="text-gray-600 text-sm mt-2">联合国大会通过，确立普世人权标准</p>
+        <!-- 标题 -->
+        <h2 class="text-2xl font-bold text-center mb-8 text-[#1e3a5f]">
+            <span class="inline-block relative">
+                法润天下 · 正义昭彰
+                <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-[#1e3a5f] rounded-full"></span>
+            </span>
+        </h2>
+
+        <!-- 卷轴布局 -->
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 左侧卷轴：选择题 -->
+            <div class="relative bg-[#e9f2fa] rounded-lg shadow-lg border border-[#b0c4d4]">
+                <!-- 卷轴侧边装饰 -->
+                <div class="absolute left-0 top-0 bottom-0 w-6 bg-[#9cb9c9] border-r border-[#758ea8]"></div>
+                <!-- 内容区 -->
+                <div class="p-6 pl-10 relative z-10">
+                    <div class="text-center mb-4">
+                        <div class="text-2xl text-[#2b5a8b] mb-1">📜</div>
+                        <h3 class="text-lg font-semibold text-[#2a435a] border-b border-[#b0c4d4] pb-1">法者之问</h3>
+                    </div>
+
+                    <p class="text-base text-[#2a435a] mb-4 font-medium text-center">
+                        「法不阿贵，绳不挠曲」出自哪部典籍？
+                    </p>
+
+                    <!-- 选项 -->
+                    <div class="space-y-2 mb-4 text-[#2a435a]" id="options">
+                        <div onclick="checkAnswer(this, false)" class="p-2 bg-[#f5f9fd] rounded-lg border border-[#b0c4d4] cursor-pointer hover:bg-[#e0eaf0]">A. 《论语》</div>
+                        <div onclick="checkAnswer(this, true)" class="p-2 bg-[#f5f9fd] rounded-lg border border-[#b0c4d4] cursor-pointer hover:bg-[#e0eaf0]">B. 《韩非子》</div>
+                        <div onclick="checkAnswer(this, false)" class="p-2 bg-[#f5f9fd] rounded-lg border border-[#b0c4d4] cursor-pointer hover:bg-[#e0eaf0]">C. 《道德经》</div>
+                        <div onclick="checkAnswer(this, false)" class="p-2 bg-[#f5f9fd] rounded-lg border border-[#b0c4d4] cursor-pointer hover:bg-[#e0eaf0]">D. 《史记》</div>
+                    </div>
+
+                    <!-- 结果反馈 -->
+                    <div id="correctAns" class="hidden p-3 bg-[#d4edda] text-[#155724] rounded-lg text-center font-medium text-sm">
+                        ✅ 回答正确！<br>释义：法律不偏袒权贵，体现法治公平核心
+                    </div>
+                    <div id="wrongAns" class="hidden p-3 bg-[#f8d7da] text-[#721c24] rounded-lg text-center font-medium text-sm">
+                        ❌ 回答错误，再试试！
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧卷轴：正义之卷 -->
+            <div class="relative bg-[#e9f2fa] rounded-lg shadow-lg border border-[#b0c4d4]">
+                <!-- 卷轴侧边装饰 -->
+                <div class="absolute left-0 top-0 bottom-0 w-6 bg-[#9cb9c9] border-r border-[#758ea8]"></div>
+                <!-- 内容区 -->
+                <div class="p-6 pl-10 relative z-10">
+                    <div class="text-center mb-4">
+                        <div class="text-2xl text-[#2b5a8b] mb-1">⚖️</div>
+                        <h3 class="text-lg font-semibold text-[#2a435a] border-b border-[#b0c4d4] pb-1">正义之卷</h3>
+                    </div>
+
+                    <div class="space-y-3 text-[#2a435a] text-sm">
+                        <div class="flex items-start gap-2">
+                            <div class="text-[#1e3a5f] mt-0.5">▷</div>
+                            <div>
+                                <h4 class="font-semibold">法者，天下之公器</h4>
+                                <p class="text-[#4a6b8b]">无分贵贱，一以贯之</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <div class="text-[#1e3a5f] mt-0.5">▷</div>
+                            <div>
+                                <h4 class="font-semibold">刑过不避大臣</h4>
+                                <p class="text-[#4a6b8b]">赏善不遗匹夫</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <div class="text-[#1e3a5f] mt-0.5">▷</div>
+                            <div>
+                                <h4 class="font-semibold">大道之行，天下为公</h4>
+                                <p class="text-[#4a6b8b]">守护每一个人的权益</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
-                    <div class="w-1/2"></div>
-                </div>
-                <div class="relative flex items-center">
-                    <div class="w-1/2"></div>
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-600 rounded-full border-4 border-white"></div>
-                    <div class="w-1/2 text-left pl-8">
-                        <div class="bg-white rounded-xl p-6 shadow inline-block">
-                            <div class="text-green-600 font-bold mb-2">1966</div>
-                            <h4 class="text-lg font-semibold">《公民权利和政治权利国际公约》</h4>
-                            <p class="text-gray-600 text-sm mt-2">具有法律约束力的人权条约</p>
+
+                    <!-- 简化印章 -->
+                    <div class="mt-4 text-right">
+                        <div class="inline-block w-12 h-12 bg-[#1e3a5f] text-white rounded-full flex items-center justify-center text-[10px] rotate-12">
+                            公平正义
                         </div>
                     </div>
                 </div>
-                <div class="relative flex items-center">
-                    <div class="w-1/2 text-right pr-8">
-                        <div class="bg-white rounded-xl p-6 shadow inline-block">
-                            <div class="text-purple-600 font-bold mb-2">1985</div>
-                            <h4 class="text-lg font-semibold">《联合国少年司法最低限度标准规则》</h4>
-                            <p class="text-gray-600 text-sm mt-2">保障少年司法中的基本权利</p>
-                        </div>
-                    </div>
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full border-4 border-white"></div>
-                    <div class="w-1/2"></div>
+            </div>
+        </div>
+
+        <!-- 核心交互函数 -->
+        <script>
+            function checkAnswer(el, isCorrect) {
+                // 重置所有选项样式
+                document.querySelectorAll('#options > div').forEach(item => {
+                    item.className = 'p-2 bg-[#f5f9fd] rounded-lg border border-[#b0c4d4] cursor-pointer hover:bg-[#e0eaf0]';
+                });
+                // 隐藏反馈
+                document.getElementById('correctAns').classList.add('hidden');
+                document.getElementById('wrongAns').classList.add('hidden');
+
+                // 设置选中样式和反馈
+                if (isCorrect) {
+                    el.classList.replace('bg-[#f5f9fd]', 'bg-[#d4edda]');
+                    el.classList.replace('border-[#b0c4d4]', 'border-[#c3e6cb]');
+                    document.getElementById('correctAns').classList.remove('hidden');
+                } else {
+                    el.classList.replace('bg-[#f5f9fd]', 'bg-[#f8d7da]');
+                    el.classList.replace('border-[#b0c4d4]', 'border-[#f5c6cb]');
+                    document.getElementById('wrongAns').classList.remove('hidden');
+                }
+            }
+        </script>
+    </div>
+</section>
+
+<!-- 正义编年史 - 浅色调高科技横轴版 -->
+<section class="py-16 bg-[#f8fafc]">
+    <div class="container mx-auto px-6">
+        <!-- 科技感标题（浅色调） -->
+        <h2 class="text-3xl font-bold text-center mb-12 relative">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">正义编年史</span>
+            <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></span>
+        </h2>
+
+        <!-- 网格背景装饰（增强科技感） -->
+        <div class="relative overflow-x-auto pb-10 scrollbar-custom">
+            <!-- 横向时间轴容器 -->
+            <div class="flex items-center gap-8 min-w-max px-4 relative z-10">
+                <!-- 科技感时间轴主线（浅色调渐变） -->
+                <div class="absolute top-1/2 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 transform -translate-y-1/2 z-0 rounded-full">
+                    <div class="absolute inset-0 bg-white/30 h-full rounded-full animate-pulse"></div>
                 </div>
-                <div class="relative flex items-center">
-                    <div class="w-1/2"></div>
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-600 rounded-full border-4 border-white"></div>
-                    <div class="w-1/2 text-left pl-8">
-                        <div class="bg-white rounded-xl p-6 shadow inline-block">
-                            <div class="text-orange-600 font-bold mb-2">2015</div>
-                            <h4 class="text-lg font-semibold">联合国可持续发展目标(SDGs)通过</h4>
-                            <p class="text-gray-600 text-sm mt-2">SDG16聚焦和平、正义与强大机构</p>
-                        </div>
+
+                <!-- 1948 节点 -->
+                <div class="relative z-10 flex flex-col items-center w-72">
+                    <div class="w-7 h-7 bg-blue-500 rounded-full border-3 border-white shadow-lg shadow-blue-400/40 mb-5 relative">
+                        <div class="absolute inset-1 w-full h-full bg-blue-300 rounded-full animate-ping opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">48</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-blue-200 shadow-lg shadow-blue-200/30 hover:shadow-blue-300/50 transition-all duration-300 hover:-translate-y-2 hover:border-blue-400">
+                        <div class="text-blue-600 font-bold mb-2 text-lg">1948</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">《世界人权宣言》发布</h4>
+                        <p class="text-slate-600 text-sm">联合国大会通过，首次确立全球普世人权标准，成为国际人权法的基础</p>
+                    </div>
+                </div>
+
+                <!-- 1966 节点 -->
+                <div class="relative z-10 flex flex-col items-center w-72">
+                    <div class="w-7 h-7 bg-cyan-500 rounded-full border-3 border-white shadow-lg shadow-cyan-400/40 mb-5 relative">
+                        <div class="absolute inset-1 w-full h-full bg-cyan-300 rounded-full animate-ping opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">66</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-cyan-200 shadow-lg shadow-cyan-200/30 hover:shadow-cyan-300/50 transition-all duration-300 hover:-translate-y-2 hover:border-cyan-400">
+                        <div class="text-cyan-600 font-bold mb-2 text-lg">1966</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">《公民权利和政治权利国际公约》</h4>
+                        <p class="text-slate-600 text-sm">具有法律约束力的核心人权条约，明确规定公民的基本政治权利与自由</p>
+                    </div>
+                </div>
+
+                <!-- 1985 节点 -->
+                <div class="relative z-10 flex flex-col items-center w-72">
+                    <div class="w-7 h-7 bg-sky-500 rounded-full border-3 border-white shadow-lg shadow-sky-400/40 mb-5 relative">
+                        <div class="absolute inset-1 w-full h-full bg-sky-300 rounded-full animate-ping opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">85</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-sky-200 shadow-lg shadow-sky-200/30 hover:shadow-sky-300/50 transition-all duration-300 hover:-translate-y-2 hover:border-sky-400">
+                        <div class="text-sky-600 font-bold mb-2 text-lg">1985</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">《联合国少年司法最低限度标准规则》</h4>
+                        <p class="text-slate-600 text-sm">又称《北京规则》，首次系统性保障未成年人在司法程序中的基本权利</p>
+                    </div>
+                </div>
+
+                <!-- 2000 节点 -->
+                <div class="relative z-10 flex flex-col items-center w-72">
+                    <div class="w-7 h-7 bg-indigo-500 rounded-full border-3 border-white shadow-lg shadow-indigo-400/40 mb-5 relative">
+                        <div class="absolute inset-1 w-full h-full bg-indigo-300 rounded-full animate-ping opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">00</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-indigo-200 shadow-lg shadow-indigo-200/30 hover:shadow-indigo-300/50 transition-all duration-300 hover:-translate-y-2 hover:border-indigo-400">
+                        <div class="text-indigo-600 font-bold mb-2 text-lg">2000</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">《千年发展目标》正式启动</h4>
+                        <p class="text-slate-600 text-sm">联合国提出8项发展目标，其中包含促进性别平等、减少暴力与不公正等内容</p>
+                    </div>
+                </div>
+
+                <!-- 2015 节点 -->
+                <div class="relative z-10 flex flex-col items-center w-72">
+                    <div class="w-7 h-7 bg-violet-500 rounded-full border-3 border-white shadow-lg shadow-violet-400/40 mb-5 relative">
+                        <div class="absolute inset-1 w-full h-full bg-violet-300 rounded-full animate-ping opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">15</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-violet-200 shadow-lg shadow-violet-200/30 hover:shadow-violet-300/50 transition-all duration-300 hover:-translate-y-2 hover:border-violet-400">
+                        <div class="text-violet-600 font-bold mb-2 text-lg">2015</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">联合国可持续发展目标(SDGs)通过</h4>
+                        <p class="text-slate-600 text-sm">SDG16聚焦和平、正义与强大机构，致力于建设包容、公正、无暴力的社会</p>
+                    </div>
+                </div>
+
+                <!-- 2020 节点 -->
+                <div class="relative z-10 flex flex-col items-center w-72">
+                    <div class="w-7 h-7 bg-teal-500 rounded-full border-3 border-white shadow-lg shadow-teal-400/40 mb-5 relative">
+                        <div class="absolute inset-1 w-full h-full bg-teal-300 rounded-full animate-ping opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">20</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-teal-200 shadow-lg shadow-teal-200/30 hover:shadow-teal-300/50 transition-all duration-300 hover:-translate-y-2 hover:border-teal-400">
+                        <div class="text-teal-600 font-bold mb-2 text-lg">2020</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">《数字权利和原则宣言》发布</h4>
+                        <p class="text-slate-600 text-sm">联合国首次系统性界定数字时代的人权保护框架，保障线上公平与正义</p>
+                    </div>
+                </div>
+
+                <!-- 2026 节点 -->
+                <div class="relative z-10 flex flex-col items-center w-72">
+                    <div class="w-7 h-7 bg-blue-600 rounded-full border-3 border-white shadow-lg shadow-blue-500/50 mb-5 relative">
+                        <div class="absolute inset-1 w-full h-full bg-blue-400 rounded-full animate-ping opacity-70"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">26</div>
+                        <div class="absolute -top-2 -right-2 w-5 h-5 bg-green-400 rounded-full border-2 border-white flex items-center justify-center text-xs text-white">新</div>
+                    </div>
+                    <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-blue-300 shadow-lg shadow-blue-300/40 hover:shadow-blue-400/60 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500">
+                        <div class="text-blue-700 font-bold mb-2 text-lg">2026</div>
+                        <h4 class="text-lg font-semibold text-slate-800 mb-2">全球司法数字化发展峰会</h4>
+                        <p class="text-slate-600 text-sm">联合国举办首届峰会，推动全球司法体系数字化转型，实现公平正义的普惠化</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- 自定义滚动条样式 -->
+    <style>
+        .scrollbar-custom::-webkit-scrollbar {
+            height: 8px;
+            margin-top: 10px;
+        }
+        .scrollbar-custom::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .scrollbar-custom::-webkit-scrollbar-thumb {
+            background: linear-gradient(to right, #60a5fa, #22d3ee);
+            border-radius: 10px;
+            border: 1px solid #f1f5f9;
+        }
+        .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to right, #3b82f6, #06b6d4);
+        }
+    </style>
 </section>
 
-<!-- 法律援助与资源 -->
-<section id="legal-aid" class="py-16 bg-white">
+<!-- 法律援助与资源 - 图文交替科普版 -->
+<section id="legal-aid" class="py-16 bg-[#f8fafc]">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">法律援助与资源</h2>
-        <div class="max-w-xl mx-auto mb-8">
-            <div class="relative">
-                <input type="text" id="legal-search" placeholder="搜索法律资源..."
-                    class="w-full px-6 py-4 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                <button onclick="doLegalSearch()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">搜索</button>
-            </div>
-            <div id="legal-search-hint" class="mt-2 text-sm text-center text-gray-400 hidden">没有找到匹配的法律资源</div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="legal-cards">
-            <div class="legal-card bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300" data-keywords="合同 诉状 模板 文书">
-                <div class="text-4xl mb-4">📋</div>
-                <h4 class="text-lg font-semibold mb-2">法律文书模板</h4>
-                <p class="text-gray-600 text-sm mb-4">各类合同、诉状标准化模板下载</p>
-                <button class="text-blue-600 hover:text-blue-800 font-semibold">下载模板 →</button>
-            </div>
-            <div class="legal-card bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300" data-keywords="咨询 律师 在线 问答">
-                <div class="text-4xl mb-4">💬</div>
-                <h4 class="text-lg font-semibold mb-2">在线咨询</h4>
-                <p class="text-gray-600 text-sm mb-4">专业律师在线答疑解惑</p>
-                <button class="text-blue-600 hover:text-blue-800 font-semibold">立即咨询 →</button>
-            </div>
-            <div class="legal-card bg-gray-50 rounded-xl p-6 text-center card-hover transition-all duration-300" data-keywords="法规 数据库 知识 查询">
-                <div class="text-4xl mb-4">📚</div>
-                <h4 class="text-lg font-semibold mb-2">法律知识库</h4>
-                <p class="text-gray-600 text-sm mb-4">法律法规数据库查询</p>
-                <button class="text-blue-600 hover:text-blue-800 font-semibold">进入知识库 →</button>
-            </div>
-        </div>
-</div>
+        <h2 class="text-3xl font-bold text-center mb-12 relative">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">法治科普 · 正义同行</span>
+            <span class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-28 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full"></span>
+        </h2>
 
-        <!-- 常见问题 FAQ -->
-        <div id="faq-section" class="mt-12">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-xl font-bold text-gray-700">常见问题 FAQ</h3>
-                <span class="text-sm text-gray-400">点击展开答案</span>
+        <!-- 第一块：左图 右文字 -->
+        <div class="max-w-5xl mx-auto mb-16 flex flex-col lg:flex-row items-center gap-8">
+            <div class="lg:w-1/2">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop" alt="法律公平正义" class="w-full h-auto object-cover rounded-xl">
             </div>
-            <div class="space-y-3">
-                <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-gray-700">法律援助是免费的吗？</span>
-                        <svg class="faq-arrow w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-600 text-sm leading-relaxed">根据《中华人民共和国法律援助法》，经济困难的公民可以申请免费法律援助。常见情形包括：刑事辩护、请求国家赔偿、请求给予最低生活保障等。您可以通过本站"在线咨询"联系专业律师，或前往当地法律援助中心申请。</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-gray-700">如何查询法院判决书？</span>
-                        <svg class="faq-arrow w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-600 text-sm leading-relaxed">中国裁判文书网（wenshu.court.gov.cn）公开了全国各级人民法院的生效判决书。您可以通过关键词、当事人姓名、法院名称等条件检索。对于未公开的特殊案件，可向审理法院申请查阅。</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-gray-700">遇到执法不公应该怎么办？</span>
-                        <svg class="faq-arrow w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-600 text-sm leading-relaxed">您可以通过以下途径维权：① 向该执法机关的上一级主管部门申诉；② 向同级人民检察院举报；③ 通过行政复议或行政诉讼；④ 向纪检监察机关举报。保留好相关证据和执法文书，以便维权使用。</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <button class="faq-trigger w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-gray-700">举报腐败需要准备哪些材料？</span>
-                        <svg class="faq-arrow w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-4">
-                        <p class="text-gray-600 text-sm leading-relaxed">建议准备：① 具体的时间、地点、人物、事件经过；② 相关书证、物证、照片等证据；③ 如有证人，记录证人信息。您可以通过本站"我要反馈"匿名提交，也可直接向各级纪检监察机关举报，全程保密。</p>
-                    </div>
-                </div>
+            <div class="lg:w-1/2">
+                <h3 class="text-2xl font-semibold text-slate-800 mb-4">法律面前 人人平等</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed">公平正义是法治的核心价值，任何人不论身份、地位、贫富，在法律面前都享有同等权利、承担同等义务。法律不偏袒权贵，不漠视弱小，坚守权利平等、机会平等、规则平等，守护社会底线与人间公道。</p>
+            </div>
+        </div>
+
+        <!-- 第二块：右图片 左文字 -->
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-8">
+            <div class="lg:w-1/2">
+                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=600&h=400&fit=crop" alt="公民合法权益" class="w-full h-auto object-cover rounded-xl">
+            </div>
+            <div class="lg:w-1/2">
+                <h3 class="text-2xl font-semibold text-slate-800 mb-4">懂法守法 守护自身权益</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                    知法于心、守法于行、用法于身。日常生活中的消费维权、劳动保障、邻里纠纷、个人隐私，都受法律明确保护。学会运用法律武器理性维权，遇事找法、解决靠法，让公平正义看得见、摸得着。
+                </p>
             </div>
         </div>
     </div>
@@ -195,12 +312,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- 案例1 -->
             <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('brown')">
-                <div class="h-40 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=640&h=160&fit=crop&auto=format&q=80" alt="布朗案" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/70 to-blue-700/80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-5xl">⚖️</span>
-                    </div>
+                <div class="h-40 bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center">
+                    <span class="text-5xl">⚖️</span>
                 </div>
                 <div class="p-5">
                     <div class="flex items-center justify-between mb-2">
@@ -218,12 +331,8 @@
 
             <!-- 案例2 -->
             <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('kosovo')">
-                <div class="h-40 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1548611635-b6e7827d7d4b?w=640&h=160&fit=crop&auto=format&q=80" alt="科索沃案" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-green-500/70 to-teal-600/80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-5xl">🌍</span>
-                    </div>
+                <div class="h-40 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+                    <span class="text-5xl">🌍</span>
                 </div>
                 <div class="p-5">
                     <div class="flex items-center justify-between mb-2">
@@ -241,12 +350,8 @@
 
             <!-- 案例3 -->
             <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('miranda')">
-                <div class="h-40 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=640&h=160&fit=crop&auto=format&q=80" alt="米兰达案" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/70 to-purple-700/80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-5xl">📜</span>
-                    </div>
+                <div class="h-40 bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center">
+                    <span class="text-5xl">📜</span>
                 </div>
                 <div class="p-5">
                     <div class="flex items-center justify-between mb-2">
@@ -264,12 +369,8 @@
 
             <!-- 案例4 -->
             <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('marshall')">
-                <div class="h-40 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=640&h=160&fit=crop&auto=format&q=80" alt="马绍尔群岛案" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-orange-500/70 to-red-600/80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-5xl">⚡</span>
-                    </div>
+                <div class="h-40 bg-gradient-to-r from-orange-500 to-red-600 flex items-center justify-center">
+                    <span class="text-5xl">⚡</span>
                 </div>
                 <div class="p-5">
                     <div class="flex items-center justify-between mb-2">
@@ -287,12 +388,8 @@
 
             <!-- 案例5 -->
             <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('southafrica')">
-                <div class="h-40 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?w=640&h=160&fit=crop&auto=format&q=80" alt="南非案" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/70 to-blue-600/80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-5xl">👥</span>
-                    </div>
+                <div class="h-40 bg-gradient-to-r from-indigo-500 to-blue-600 flex items-center justify-center">
+                    <span class="text-5xl">👥</span>
                 </div>
                 <div class="p-5">
                     <div class="flex items-center justify-between mb-2">
@@ -310,12 +407,8 @@
 
             <!-- 案例6 -->
             <div class="bg-white rounded-xl overflow-hidden shadow card-hover transition-all duration-300 cursor-pointer" onclick="openCaseModal('google')">
-                <div class="h-40 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1518770660-7dd9fce3d974?w=640&h=160&fit=crop&auto=format&q=80" alt="被遗忘权案" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-teal-500/70 to-cyan-600/80"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-5xl">🔧</span>
-                    </div>
+                <div class="h-40 bg-gradient-to-r from-teal-500 to-cyan-600 flex items-center justify-center">
+                    <span class="text-5xl">🔧</span>
                 </div>
                 <div class="p-5">
                     <div class="flex items-center justify-between mb-2">
@@ -347,61 +440,6 @@
 function scrollToChart() {
     document.getElementById('chart-section').scrollIntoView({ behavior: 'smooth' });
 }
-
-function doLegalSearch() {
-    const query = document.getElementById('legal-search').value.trim().toLowerCase();
-    const cards = document.querySelectorAll('.legal-card');
-    const hint = document.getElementById('legal-search-hint');
-    let anyVisible = false;
-    cards.forEach(card => {
-        const text = (card.textContent + ' ' + (card.dataset.keywords || '')).toLowerCase();
-        const match = !query || text.includes(query);
-        card.style.display = match ? '' : 'none';
-        if (match) anyVisible = true;
-    });
-    hint.classList.toggle('hidden', anyVisible);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('legal-search').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') doLegalSearch();
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const barChart = echarts.init(document.getElementById('rule-law-bar'));
-    fetch('/api/rule-of-law-data')
-        .then(res => res.json())
-        .then(data => {
-            barChart.setOption({
-                tooltip: { trigger: 'axis' },
-                xAxis: { type: 'category', data: data.countries, axisLabel: { rotate: 30 } },
-                yAxis: { type: 'value', min: 0, max: 100 },
-                series: [{ data: data.scores, type: 'bar', itemStyle: { color: '#3b82f6' } }]
-            });
-        });
-
-    const lineChart = echarts.init(document.getElementById('rule-law-line'));
-    lineChart.setOption({
-        tooltip: { trigger: 'axis' },
-        xAxis: { type: 'category', data: ['2019', '2020', '2021', '2022', '2023'] },
-        yAxis: { type: 'value', min: 0, max: 100 },
-        series: [
-            {
-                name: '法治指数',
-                data: [82, 83, 81, 84, 85],
-                type: 'line',
-                areaStyle: { color: 'rgba(59, 130, 246, 0.3)' },
-                itemStyle: { color: '#3b82f6' }
-            }
-        ]
-    });
-
-    window.addEventListener('resize', () => {
-        barChart.resize();
-        lineChart.resize();
-    });
-});
 
 // 案例数据
 const caseData = {
@@ -598,24 +636,5 @@ document.addEventListener('keydown', function(e) {
         closeCaseModal();
     }
 });
-
-// FAQ折叠
-function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const content = item.querySelector('.faq-content');
-    const arrow = item.querySelector('.faq-arrow');
-
-    // 关闭其他FAQ
-    document.querySelectorAll('.faq-item').forEach(function(otherItem) {
-        if (otherItem !== item) {
-            otherItem.querySelector('.faq-content').classList.add('hidden');
-            otherItem.querySelector('.faq-arrow').classList.remove('rotate-180');
-        }
-    });
-
-    // 切换当前
-    content.classList.toggle('hidden');
-    arrow.classList.toggle('rotate-180');
-}
 </script>
 {% endblock %}

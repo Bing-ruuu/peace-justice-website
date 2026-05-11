@@ -17,7 +17,8 @@
             🌐 SDG16：以数据驱动和平，以正义守护未来
         </div>
         <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            促进和平正义<br>建设强大机构
+            促进和平正义<br>
+            建设强大机构
         </h1>
         <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
             全球和平、法治与机构透明的一站式数据平台<br>
@@ -44,7 +45,7 @@
     <div class="container mx-auto px-6">
         <div class="text-center mb-4">
             <h2 class="text-3xl font-bold text-gray-800 mb-4">全球数据概览</h2>
-            <p class="text-gray-500">实时追踪 · 数据更新于 2026-01-01</p>
+            <p class="text-gray-500">实时追踪 · 数据更新于 2024-04-01</p>
         </div>
 
         <!-- 核心指标卡片 -->
@@ -53,7 +54,7 @@
             <div class="stat-counter rounded-xl p-5 text-center text-white card-hover transition-all duration-300 cursor-pointer group" onclick="scrollToSection('/peace#core-data')">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-2xl">🕊️</span>
-                    <span class="text-xs bg-green-500/30 px-2 py-1 rounded-full">2026</span>
+                    <span class="text-xs bg-green-500/30 px-2 py-1 rounded-full">2024</span>
                 </div>
                 <div class="text-3xl font-bold mb-1" id="peace-index">--</div>
                 <div class="text-xs text-gray-200 mb-3">全球和平指数</div>
@@ -76,7 +77,7 @@
             <div class="stat-counter rounded-xl p-5 text-center text-white card-hover transition-all duration-300 cursor-pointer group" onclick="scrollToSection('/justice#chart-section')">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-2xl">⚖️</span>
-                    <span class="text-xs bg-blue-500/30 px-2 py-1 rounded-full">2026</span>
+                    <span class="text-xs bg-blue-500/30 px-2 py-1 rounded-full">2024</span>
                 </div>
                 <div class="text-3xl font-bold mb-1" id="rule-of-law">--</div>
                 <div class="text-xs text-gray-200 mb-3">法治指数</div>
@@ -98,7 +99,7 @@
             <div class="stat-counter rounded-xl p-5 text-center text-white card-hover transition-all duration-300 cursor-pointer group" onclick="scrollToSection('/institution#chart-section')">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-2xl">🏛️</span>
-                    <span class="text-xs bg-purple-500/30 px-2 py-1 rounded-full">2026</span>
+                    <span class="text-xs bg-purple-500/30 px-2 py-1 rounded-full">2024</span>
                 </div>
                 <div class="text-3xl font-bold mb-1" id="cpi-score">--</div>
                 <div class="text-xs text-gray-200 mb-3">清廉指数均分</div>
@@ -170,7 +171,7 @@
                     三大指数年度趋势
                 </h3>
                 <div id="index-trend-chart" class="w-full h-64"></div>
-                <p class="text-xs text-gray-500 mt-2 text-center">hover 查看详细数据 · 点击图例筛选</p>
+                <p class="text-xs text-gray-500 mt-2 text-center">-hover查看详细数据 · 点击图例筛选</p>
             </div>
 
             <!-- 地区和平指数对比 -->
@@ -254,12 +255,8 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- 和平建设 -->
             <a href="/peace" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300 group">
-                <div class="h-48 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=640&h=192&fit=crop&auto=format&q=80" alt="和平建设" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/60 to-green-700/70"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-6xl">🕊️</span>
-                    </div>
+                <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center relative">
+                    <span class="text-8xl">🕊️</span>
                     <div class="absolute top-4 right-4 bg-white/20 px-3 py-1 rounded-full text-sm text-white backdrop-blur-sm">
                         163个国家
                     </div>
@@ -286,12 +283,8 @@
 
             <!-- 法治正义 -->
             <a href="/justice" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300 group">
-                <div class="h-48 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=640&h=192&fit=crop&auto=format&q=80" alt="法治正义" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/60 to-blue-700/70"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-6xl">⚖️</span>
-                    </div>
+                <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative">
+                    <span class="text-8xl">⚖️</span>
                     <div class="absolute top-4 right-4 bg-white/20 px-3 py-1 rounded-full text-sm text-white backdrop-blur-sm">
                         6大洲对比
                     </div>
@@ -318,12 +311,8 @@
 
             <!-- 透明机构 -->
             <a href="/institution" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-300 group">
-                <div class="h-48 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=640&h=192&fit=crop&auto=format&q=80" alt="透明机构" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/60 to-purple-700/70"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-6xl">🏛️</span>
-                    </div>
+                <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center relative">
+                    <span class="text-8xl">🏛️</span>
                     <div class="absolute top-4 right-4 bg-white/20 px-3 py-1 rounded-full text-sm text-white backdrop-blur-sm">
                         Top 10/末 10
                     </div>
@@ -371,10 +360,10 @@
                 <p class="text-gray-500 mt-1">追踪全球和平、法治与机构建设进展</p>
             </div>
             <div class="flex gap-2 flex-wrap">
-                <button class="px-3 py-1 bg-green-600 text-white rounded-full text-sm" onclick="filterHomeNews(this,'all')">全部</button>
-                <button class="px-3 py-1 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterHomeNews(this,'dialogue')">和平对话</button>
-                <button class="px-3 py-1 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterHomeNews(this,'law')">法治进展</button>
-                <button class="px-3 py-1 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterHomeNews(this,'anticorrupt')">反腐行动</button>
+                <button class="px-3 py-1 bg-green-600 text-white rounded-full text-sm" onclick="filterHomeNews('all')">全部</button>
+                <button class="px-3 py-1 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterHomeNews('dialogue')">和平对话</button>
+                <button class="px-3 py-1 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterHomeNews('law')">法治进展</button>
+                <button class="px-3 py-1 bg-white text-gray-600 border border-gray-300 rounded-full text-sm hover:bg-gray-50" onclick="filterHomeNews('anticorrupt')">反腐行动</button>
             </div>
         </div>
 
@@ -382,7 +371,7 @@
             <div class="news-card bg-gray-50 rounded-xl p-6 border-l-4 border-green-500 card-hover transition-all duration-300" data-category="dialogue">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">和平对话</span>
-                    <span class="text-xs text-gray-400">2026-04-15</span>
+                    <span class="text-xs text-gray-400">2024-04-15</span>
                 </div>
                 <h4 class="text-lg font-semibold mb-2">东亚和平对话取得突破性进展</h4>
                 <p class="text-gray-600 text-sm mb-4">中国、日本、韩国及朝鲜代表在北京举行四方会谈，就朝鲜半岛无核化路径达成新的共识框架...</p>
@@ -395,7 +384,7 @@
             <div class="news-card bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500 card-hover transition-all duration-300" data-category="law">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">法治进展</span>
-                    <span class="text-xs text-gray-400">2026-04-12</span>
+                    <span class="text-xs text-gray-400">2024-04-12</span>
                 </div>
                 <h4 class="text-lg font-semibold mb-2">联合国发布最新法治评估报告</h4>
                 <p class="text-gray-600 text-sm mb-4">报告显示全球法治建设持续推进，但地区差异依然显著，中东和北非地区面临最大挑战...</p>
@@ -408,7 +397,7 @@
             <div class="news-card bg-gray-50 rounded-xl p-6 border-l-4 border-purple-500 card-hover transition-all duration-300" data-category="anticorrupt">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">反腐行动</span>
-                    <span class="text-xs text-gray-400">2026-04-10</span>
+                    <span class="text-xs text-gray-400">2024-04-10</span>
                 </div>
                 <h4 class="text-lg font-semibold mb-2">反腐行动在全球范围内取得实效</h4>
                 <p class="text-gray-600 text-sm mb-4">多国联合行动成功打击跨境腐败网络，追回损失资产超百亿美元，跨境执法合作机制日趋完善...</p>
@@ -475,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']
+            data: ['2019', '2020', '2021', '2022', '2023', '2024']
         },
         yAxis: { type: 'value', min: 0, max: 100 },
         series: [
@@ -483,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: '和平指数',
                 type: 'line',
                 smooth: true,
-                data: [75, 73, 72, 78, 80, 82, 83, 84],
+                data: [75, 73, 72, 78, 80, 82],
                 itemStyle: { color: '#10b981' },
                 areaStyle: { color: 'rgba(16, 185, 129, 0.1)' }
             },
@@ -491,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: '法治指数',
                 type: 'line',
                 smooth: true,
-                data: [82, 83, 81, 84, 85, 86, 87, 87],
+                data: [82, 83, 81, 84, 85, 86],
                 itemStyle: { color: '#3b82f6' },
                 areaStyle: { color: 'rgba(59, 130, 246, 0.1)' }
             },
@@ -499,7 +488,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: '清廉指数',
                 type: 'line',
                 smooth: true,
-                data: [80, 79, 78, 79, 78, 78, 79, 79],
+                data: [80, 79, 78, 79, 78, 78],
                 itemStyle: { color: '#8b5cf6' },
                 areaStyle: { color: 'rgba(139, 92, 246, 0.1)' }
             }
@@ -596,17 +585,17 @@ function sortTable(col) {
 }
 
 // 首页动态筛选
-function filterHomeNews(btn, category) {
+function filterHomeNews(category) {
     const cards = document.querySelectorAll('.news-card');
     const buttons = document.querySelectorAll('[onclick^="filterHomeNews"]');
 
-    buttons.forEach(b => {
-        b.classList.remove('bg-green-600', 'bg-blue-600', 'bg-purple-600', 'text-white');
-        b.classList.add('bg-white', 'text-gray-600', 'border', 'border-gray-300');
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-green-600', 'bg-blue-600', 'bg-purple-600', 'text-white');
+        btn.classList.add('bg-white', 'text-gray-600', 'border', 'border-gray-300');
     });
 
-    btn.classList.remove('bg-white', 'text-gray-600', 'border', 'border-gray-300');
-    btn.classList.add('bg-green-600', 'text-white');
+    event.target.classList.remove('bg-white', 'text-gray-600', 'border', 'border-gray-300');
+    event.target.classList.add('bg-green-600', 'text-white');
 
     cards.forEach(card => {
         if (category === 'all' || card.dataset.category === category) {
